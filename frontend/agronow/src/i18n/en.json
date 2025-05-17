@@ -1,198 +1,35 @@
 {
-  "openapi": "3.1.0",
-  "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
+  "login-and-register": {
+    "register-now": "Register NOW",
+    "register": "Register",
+    "sign-in": "Sign In",
+    "password": "Password",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "dont-have-account": "Don't have an account?",
+    "back-to-login": "Back to Login",
+    "type-activation-code": "Type your activation code",
+    "try-again": "Try Again",
+    "activate-successfully-title": "Activation Successful!",
+    "activate-bad-title": "Activation failed!",
+    "activate-successfully": "Your account has been successfully activated!\nNow you can proceed to Login",
+    "activate-bad": "Token has been expired or invalid!"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8088/api",
-      "description": "Generated server url"
-    }
-  ],
-  "paths": {
-    "/auth/register": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "register",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrationRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "description": "Accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/authenticate": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "authenticate",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthenticationRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthenticationResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{id}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "operationId": "getUser",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/activate-account": {
-      "get": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "confirm",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    }
+  "home-page": {
+    "first-paragraph": "AgroNOW is the digital solution dedicated to modernizing agri-food markets by automating and streamlining commercial activities. Our platform connects local producers with consumers through an intuitive and accessible interface. With AgroNOW, tradition meets innovation in real time.",
+    "header-1": "🔗 Connecting Producers with Technology",
+    "header-1-description": "We transform agri-food markets through digitalization, making it easier to sell and manage products.",
+    "header-2": "📊 Real-Time Efficiency",
+    "header-2-description": "Automated monitoring, management, and reporting for smart administration of daily operations.",
+    "header-3": "🌱 Tradition and Innovation",
+    "header-3-description": "We honor local values by integrating modern solutions tailored to the needs of producers and consumers."  
   },
-  "components": {
-    "schemas": {
-      "RegistrationRequest": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "minLength": 1
-          },
-          "lastName": {
-            "type": "string",
-            "minLength": 1
-          },
-          "email": {
-            "type": "string",
-            "minLength": 1
-          },
-          "password": {
-            "type": "string",
-            "maxLength": 2147483647,
-            "minLength": 8
-          }
-        }
-      },
-      "AuthenticationRequest": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "minLength": 1
-          },
-          "password": {
-            "type": "string",
-            "maxLength": 2147483647,
-            "minLength": 8
-          }
-        }
-      },
-      "AuthenticationResponse": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
-      "UserResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "enabled": {
-            "type": "boolean"
-          }
-        }
-      }
-    }
+  "navigation-bar": {
+    "home": "Home",
+    "shops": "Shops",
+    "change-language": "Change Language"
+  },
+  "profile": {
+    "need-to-login-first": "You need to login first!"
   }
 }

@@ -1,0 +1,36 @@
+<div class="container-fluid card login-container">
+  <h3 class="text-center m-lg-2">Register</h3>
+  <hr>
+  <div *ngIf="errorMessages.length > 0" class="alert alert-danger" role="alert">
+    <p *ngFor="let message of errorMessages">{{ message }}</p>
+  </div>
+  <div class="mb-3">
+    <label for="firstName" class="form-label">{{ 'login-and-register.first-name' | translate }}</label>
+    <input [(ngModel)]="registerRequest.firstName" type="text" class="form-control" id="firstName"
+           placeholder="{{ 'login-and-register.first-name' | translate }}">
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">{{ 'login-and-register.last-name' | translate }}</label>
+    <input [(ngModel)]="registerRequest.lastName" type="text" class="form-control" id="lastName"
+           placeholder="{{ 'login-and-register.last-name' | translate }}">
+  </div>
+  <div class="mb-3">
+    <label for="login" class="form-label">Email</label>
+    <input [(ngModel)]="registerRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">{{ 'login-and-register.password' | translate }}</label>
+    <input [(ngModel)]="registerRequest.password" type="password" class="form-control" id="password"
+           placeholder="{{ 'login-and-register.password' | translate }}">
+  </div>
+  <div class="d-flex justify-content-between mg-3 m-lg-3">
+    <button *ngIf="!isAlreadyLoggedIn()" (click)="register()" type="button" class="btn btn-primary">
+      <em class="fas fa-sign-in-alt">&nbsp; {{ 'login-and-register.register' | translate }}</em>
+    </button>
+    <div>
+      <button (click)="goToLogin()" type="button" class="btn btn-outline-secondary">
+        {{ 'login-and-register.back-to-login' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

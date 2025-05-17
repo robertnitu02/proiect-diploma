@@ -1,198 +1,35 @@
 {
-  "openapi": "3.1.0",
-  "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
+  "login-and-register": {
+    "register-now": "Înregistrează-te ACUM",
+    "register": "Înregistrează-te",
+    "sign-in": "Logheaza-te",
+    "password": "Parolă",
+    "first-name": "Nume",
+    "last-name": "Prenume",
+    "dont-have-account": "Nu ai un cont?",
+    "back-to-login": "Înapoi la Logare",
+    "type-activation-code": "Introdu codul de verificare",
+    "try-again": "Încearcă din nou",
+    "activate-successfully-title": "Activare cu succes!",
+    "activate-bad-title": "Activare întreruptă!",
+    "activate-successfully": "Contul tău a fost activat cu succes!\nAcum poți să mergi la pagina de Login",
+    "activate-bad": "Token-ul a expirat sau este invalid!"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8088/api",
-      "description": "Generated server url"
-    }
-  ],
-  "paths": {
-    "/auth/register": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "register",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrationRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "202": {
-            "description": "Accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/authenticate": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "authenticate",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthenticationRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthenticationResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{id}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "operationId": "getUser",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/activate-account": {
-      "get": {
-        "tags": [
-          "Authentication"
-        ],
-        "operationId": "confirm",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    }
+  "home-page": {
+    "first-paragraph": "AgroNOW este soluția digitală dedicată modernizării piețelor agroalimentare prin automatizarea și eficientizarea activităților comerciale. Platforma noastră conectează producătorii locali cu consumatorii printr-o interfață intuitivă și accesibilă. Cu AgroNOW, tradiția întâlnește inovația în timp real.",
+    "header-1": "🔗 Conectăm producătorii cu tehnologia",
+    "header-1-description": "Transformăm piețele agroalimentare prin digitalizare, facilitând vânzarea și gestionarea produselor.",
+    "header-2": "📊 Eficiență în timp real",
+    "header-2-description": "Monitorizare, gestiune și raportare automată pentru o administrare inteligentă a activităților zilnice.",
+    "header-3": "🌱 Tradiție și inovație",
+    "header-3-description": "Respectăm valorile locale, integrând soluții moderne adaptate nevoilor producătorilor și consumatorilor."
   },
-  "components": {
-    "schemas": {
-      "RegistrationRequest": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "minLength": 1
-          },
-          "lastName": {
-            "type": "string",
-            "minLength": 1
-          },
-          "email": {
-            "type": "string",
-            "minLength": 1
-          },
-          "password": {
-            "type": "string",
-            "maxLength": 2147483647,
-            "minLength": 8
-          }
-        }
-      },
-      "AuthenticationRequest": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "minLength": 1
-          },
-          "password": {
-            "type": "string",
-            "maxLength": 2147483647,
-            "minLength": 8
-          }
-        }
-      },
-      "AuthenticationResponse": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
-      "UserResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "enabled": {
-            "type": "boolean"
-          }
-        }
-      }
-    }
+  "navigation-bar": {
+    "home": "Acasă",
+    "shops": "Piețe",
+    "change-language": "Schimbă Limba"
+  },
+  "profile": {
+    "need-to-login-first": "Trebuie să te loghezi întâi!"
   }
 }
