@@ -9,7 +9,7 @@ enum pages {
   LOGIN,
   HOME,
   PROFILE,
-  SHOPS,
+  MARKETS,
 }
 
 @Component({
@@ -29,7 +29,7 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
     [pages.HOME]: "home",
     [pages.LOGIN]: "login",
     [pages.PROFILE]: "profile",
-    [pages.SHOPS]: "shops"
+    [pages.MARKETS]: "markets"
   };
 
   constructor(

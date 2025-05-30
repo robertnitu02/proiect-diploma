@@ -34,15 +34,16 @@ public class User implements UserDetails, Principal {
     private String email;
     private String password;
 
-    private boolean accountLocked;
-    private boolean enabled;
-
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdDate;
-    @LastModifiedDate
-    @Column(insertable = false)
-    private LocalDateTime lastModifiedDate;
+
+    private boolean enabled;
+    private String imageUrl;
+
+    private Integer admin;
+    private Integer market;
+    private Integer stall;
 
     @Override
     public String getName() {
@@ -62,11 +63,6 @@ public class User implements UserDetails, Principal {
     @Override
     public boolean isAccountNonExpired() {
         return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return !accountLocked;
     }
 
     @Override

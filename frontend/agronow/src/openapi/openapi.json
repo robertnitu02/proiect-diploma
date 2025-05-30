@@ -11,6 +11,66 @@
     }
   ],
   "paths": {
+    "/stalls/add": {
+      "post": {
+        "tags": [
+          "Stall"
+        ],
+        "operationId": "addMarket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Stall"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/markets/add": {
+      "post": {
+        "tags": [
+          "Market"
+        ],
+        "operationId": "addMarket_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Market"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/register": {
       "post": {
         "tags": [
@@ -102,6 +162,125 @@
         }
       }
     },
+    "/stalls/{id}": {
+      "get": {
+        "tags": [
+          "Stall"
+        ],
+        "operationId": "getStall",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StallResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stalls/stalls-by-market/{id}": {
+      "get": {
+        "tags": [
+          "Stall"
+        ],
+        "operationId": "getStallsByMarketId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StallResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/markets/{id}": {
+      "get": {
+        "tags": [
+          "Market"
+        ],
+        "operationId": "getMarket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/markets/all": {
+      "get": {
+        "tags": [
+          "Market"
+        ],
+        "operationId": "getAllMarkets",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/activate-account": {
       "get": {
         "tags": [
@@ -128,6 +307,150 @@
   },
   "components": {
     "schemas": {
+      "GrantedAuthority": {
+        "type": "object",
+        "properties": {
+          "authority": {
+            "type": "string"
+          }
+        }
+      },
+      "Market": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "schedule": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "Stall": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "products": {
+            "type": "string"
+          },
+          "schedule": {
+            "type": "string"
+          },
+          "marketPlacedId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "market": {
+            "$ref": "#/components/schemas/Market"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "admin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "market": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stall": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "authorities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrantedAuthority"
+            }
+          },
+          "credentialsNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonLocked": {
+            "type": "boolean"
+          }
+        }
+      },
       "RegistrationRequest": {
         "type": "object",
         "properties": {
@@ -190,6 +513,72 @@
           },
           "enabled": {
             "type": "boolean"
+          }
+        }
+      },
+      "StallResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "schedule": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "ownerFullName": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketName": {
+            "type": "string"
+          },
+          "marketId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "MarketResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "schedule": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "ownerFullName": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       }

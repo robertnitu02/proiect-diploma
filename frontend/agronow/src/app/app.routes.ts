@@ -5,8 +5,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ShopsComponent } from './pages/shops/shops.component';
-import { ShopComponent } from './pages/shop/shop.component';
+import { MarketsComponent } from './pages/markets/markets.component';
+import { StallsComponent } from './pages/stalls/stalls.component';
 
 export const routes: Routes = [
   {
@@ -30,12 +30,12 @@ export const routes: Routes = [
     component: ProfileComponent,
   },
   {
-    path: 'shops',
-    component: ShopsComponent,
+    path: 'markets',
+    component: MarketsComponent,
   },
   {
-    path: 'shop',
-    component: ShopComponent,
+    path: 'stalls/:id',
+    component: StallsComponent,
   },
   {
     path: '',

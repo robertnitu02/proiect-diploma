@@ -26,10 +26,17 @@
   },
   "navigation-bar": {
     "home": "Acasă",
-    "shops": "Piețe",
+    "markets": "Piețe",
     "change-language": "Schimbă Limba"
   },
   "profile": {
     "need-to-login-first": "Trebuie să te loghezi întâi!"
+  },
+  "markets": {
+    "schedule": "Program funcționare: ",
+    "to-stalls": "Vezi Tarabele"
+  },
+  "stalls": {
+    "order": "Comandă"
   }
 }

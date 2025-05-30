@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngFor="let market of markets" class="card mb-3 w-75">
+    <img src="{{ market.imageUrl }}"
+         class="card-img-top photo" alt="{{ market.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ market.name }} - {{ market.location }}</h5>
+      <p class="card-text">{{ market.description }}</p>
+      <a class="btn btn-primary" (click)="goToMarket(market.id ?? 0)">{{ 'markets.to-stalls' | translate }}</a>
+      <p class="card-text"><small class="text-muted">{{ 'markets.schedule' | translate }} {{ market.schedule }}</small></p>
+    </div>
+  </div>
+</div>

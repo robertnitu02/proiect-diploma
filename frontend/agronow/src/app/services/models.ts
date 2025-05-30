@@ -4,5 +4,11 @@
 
 export type { AuthenticationRequest } from './models/authentication-request';
 export type { AuthenticationResponse } from './models/authentication-response';
+export type { GrantedAuthority } from './models/granted-authority';
+export type { Market } from './models/market';
+export type { MarketResponse } from './models/market-response';
 export type { RegistrationRequest } from './models/registration-request';
+export type { Stall } from './models/stall';
+export type { StallResponse } from './models/stall-response';
+export type { User } from './models/user';
 export type { UserResponse } from './models/user-response';

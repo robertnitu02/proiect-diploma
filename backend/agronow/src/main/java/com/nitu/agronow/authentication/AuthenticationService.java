@@ -46,9 +46,11 @@ public class AuthenticationService {
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .accountLocked(false)
                 .enabled(false)
                 .createdDate(LocalDateTime.now())
+                .admin(0)
+                .market(0)
+                .stall(0)
                 .build();
         userRepository.save(user);
 

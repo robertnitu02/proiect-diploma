@@ -26,10 +26,17 @@
   },
   "navigation-bar": {
     "home": "Home",
-    "shops": "Shops",
+    "markets": "Markets",
     "change-language": "Change Language"
   },
   "profile": {
     "need-to-login-first": "You need to login first!"
+  },
+  "markets": {
+    "schedule": "Schedule: ",
+    "to-stalls": "To Stalls"
+  },
+  "stalls": {
+    "order": "Order"
   }
 }
