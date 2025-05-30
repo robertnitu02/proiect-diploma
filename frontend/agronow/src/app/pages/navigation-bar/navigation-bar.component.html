@@ -1,24 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand">AgroNOW</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand fw-bold fs-4" style="cursor: pointer;">AgroNOW</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" (click)="goToPage(pages.HOME)">{{ 'navigation-bar.home' | translate }}</a>
+          <a class="nav-link" (click)="goToPage(pages.HOME)">
+            {{ 'navigation-bar.home' | translate }}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="goToPage(pages.MARKETS)">{{ 'navigation-bar.markets' | translate }}</a>
+          <a class="nav-link" (click)="goToPage(pages.MARKETS)">
+            {{ 'navigation-bar.markets' | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="goToPage(pages.REQUESTS)">
+            {{ 'navigation-bar.requests' | translate }}
+          </a>
         </li>
       </ul>
-      <span class="navbar-text">
-       <button class="btn btn-outline-info m-2" (click)="changeLanguage()">{{ 'navigation-bar.change-language' | translate }}</button>
-       <button *ngIf="!isLogged" class="btn btn-outline-success" (click)="goToPage(pages.LOGIN)">Login</button>
-       <button *ngIf="isLogged" class="btn btn-outline-secondary" (click)="goToPage(pages.PROFILE)">Profil</button>
-       <button *ngIf="isLogged" class="btn btn-outline-danger m-2" (click)="logOut()">Log Out</button>
-      </span>
+
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-info me-2" (click)="changeLanguage()">
+          {{ 'navigation-bar.change-language' | translate }}
+        </button>
+
+        <ng-container *ngIf="!isLogged">
+          <button class="btn btn-outline-success" (click)="goToPage(pages.LOGIN)">
+            {{ 'login-and-register.sign-in' | translate }}
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="isLogged">
+          <button class="btn btn-outline-light me-2" (click)="goToPage(pages.PROFILE)">
+            {{ 'navigation-bar.profile' | translate }}
+          </button>
+          <button class="btn btn-outline-danger" (click)="logOut()">
+            {{ 'navigation-bar.logout' | translate }}
+          </button>
+        </ng-container>
+      </div>
     </div>
   </div>
 </nav>

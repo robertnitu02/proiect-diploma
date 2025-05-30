@@ -1,16 +1,32 @@
-<div class="container">
-    <div *ngIf="this.tokenService.isAlreadyLoggedIn() else needToLoginFirst" class="mb-lg-3">
-      <div *ngIf="profileData" class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{ this.profileData.firstName }} {{ this.profileData.lastName }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">ID: {{ this.profileData.id }}</h6>
-          <p class="card-text">Email: {{ this.profileData.email }}</p>
-          <p class="card-text">Activated: {{ this.profileData.enabled }}</p>
+<div class="container py-4">
+  <div *ngIf="this.tokenService.isAlreadyLoggedIn(); else needToLoginFirst">
+    <div *ngIf="profileData" class="card shadow-lg mx-auto" style="max-width: 400px;">
+      <div class="card-body text-center">
+        <div class="mb-3">
+          <img src="https://via.placeholder.com/100"
+               class="rounded-circle shadow-sm"
+               alt="User avatar">
         </div>
+        <h4 class="card-title mb-1">{{ profileData.firstName }} {{ profileData.lastName }}</h4>
+        <h6 class="card-subtitle mb-3 text-muted">ID: {{ profileData.id }}</h6>
+
+        <ul class="list-group list-group-flush text-start mb-3">
+          <li class="list-group-item"><strong>Email:</strong> {{ profileData.email }}</li>
+          <li class="list-group-item">
+            <strong>{{ 'profile.activated' | translate }}:</strong>
+            <span>
+              {{ profileData.enabled }}
+            </span>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 
-    <ng-template #needToLoginFirst>
-      <h2>{{ 'profile.need-to-login-first' | translate }}</h2>
-    </ng-template>
+  <ng-template #needToLoginFirst>
+    <div class="text-center">
+      <h2 class="text-danger">{{ 'profile.need-to-login-first' | translate }}</h2>
+      <p class="lead">{{ 'profile.please-login' | translate }}</p>
+    </div>
+  </ng-template>
 </div>

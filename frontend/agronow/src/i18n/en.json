@@ -27,10 +27,14 @@
   "navigation-bar": {
     "home": "Home",
     "markets": "Markets",
-    "change-language": "Change Language"
+    "profile": "Profile",
+    "logout": "Log Out",
+    "change-language": "Change Language",
+    "requests": "Requests"
   },
   "profile": {
-    "need-to-login-first": "You need to login first!"
+    "need-to-login-first": "You need to login first!",
+    "activated": "Activate Account"
   },
   "markets": {
     "schedule": "Schedule: ",
@@ -38,5 +42,26 @@
   },
   "stalls": {
     "order": "Order"
+  },
+  "requests": {
+    "title": "Role Requests",
+    "type": "Request Type",
+    "message": "Message",
+    "message-place-holder": "Enter an specific message for your request",
+    "links": "Links",
+    "links-place-holder": "Enter some links about your type of request (CV, Market images, Your experience etc..)",
+    "send": "Send",
+    "your-request": "Your Requests",
+    "createdAt": "Created At",
+    "types": {
+      "0": "Administrator",
+      "1": "Market",
+      "2": "Stall"
+    },
+    "status-type": {
+      "0": "Pending",
+      "1": "Accepted",
+      "2": "Rejected"
+    }
   }
 }

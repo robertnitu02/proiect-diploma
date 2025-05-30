@@ -1,0 +1,91 @@
+<div class="container">
+  <div *ngIf="this.tokenService.isAlreadyLoggedIn() else needToLoginFirst" class="content">
+    <div *ngIf="hasRequests" class="container py-4">
+      <div class="card shadow border-0 p-4">
+        <h3 class="text-center mb-4">{{ 'requests.your-request' | translate }}</h3>
+        <div class="row g-4">
+          <div class="col-md-6" *ngFor="let request of userRequests">
+            <div class="card h-100 border-light shadow-sm rounded-4 p-3">
+              <div class="d-flex align-items-center mb-3">
+                <img [src]="request.userImageUrl || 'https://via.placeholder.com/50'"
+                     alt="User"
+                     class="rounded-circle me-3 border"
+                     width="50" height="50">
+                <div>
+                  <h5 class="mb-0 fw-semibold">{{ request.userFullName }}</h5>
+                  <small class="text-muted">{{ request.userEmail }}</small>
+                </div>
+              </div>
+
+              <p class="mb-1"><strong>{{ 'requests.type' | translate }}:</strong> {{ ('requests.types.' + request.type) | translate }}</p>
+              <p class="mb-1"><strong>{{ 'requests.status' | translate }}:</strong> {{ ('requests.status-type.' + request.status) | translate }}</p>
+              <p class="mb-1"><strong>{{ 'requests.message' | translate }}:</strong> {{ request.message }}</p>
+              <p class="mb-3">
+                <strong>{{ 'requests.links' | translate }}:</strong>
+                <a *ngIf="request.links" [href]="request.links" target="_blank" class="link-primary text-decoration-underline">
+                  {{ request.links }}
+                </a>
+              </p>
+
+              <div class="text-muted small">
+                <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
+                <div *ngIf="request.acceptedAt"><strong>{{ 'requests.acceptedAt' | translate }}:</strong> {{ request.acceptedAt | date:'short' }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isRequestFormActive" class="container py-4">
+      <div class="card shadow border-0 p-4 rounded-4">
+        <h3 class="text-center mb-4">{{ 'requests.title' | translate }}</h3>
+
+        <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
+          <ul class="mb-0">
+            <li *ngFor="let message of errorMessages">{{ message }}</li>
+          </ul>
+        </div>
+
+        <div class="mb-3">
+          <label for="requestType" class="form-label fw-medium">{{ 'requests.type' | translate }}</label>
+          <select [(ngModel)]="requestData.type" class="form-select" id="requestType">
+            <option *ngFor="let type of requestTypes" [value]="type">
+              {{ ('requests.types.' + type) | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="requestMessage" class="form-label fw-medium">{{ 'requests.message' | translate }}</label>
+          <textarea [(ngModel)]="requestData.message"
+                    class="form-control"
+                    id="requestMessage"
+                    rows="4"
+                    placeholder="{{ 'requests.message-place-holder' | translate }}">
+    </textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="requestLinks" class="form-label fw-medium">{{ 'requests.links' | translate }}</label>
+          <textarea [(ngModel)]="requestData.links"
+                    class="form-control"
+                    id="requestLinks"
+                    rows="2"
+                    placeholder="{{ 'requests.links-place-holder' | translate }}">
+    </textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button (click)="sendRequest()" type="button" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm">
+            <i class="fas fa-paper-plane me-2"></i> {{ 'requests.send' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #needToLoginFirst>
+    <h2>{{ 'profile.need-to-login-first' | translate }}</h2>
+  </ng-template>
+</div>

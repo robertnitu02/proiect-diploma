@@ -1,27 +1,73 @@
-<div class="container-fluid card login-container">
-  <h3 class="text-center m-lg-2">Login</h3>
-  <hr>
-  <div *ngIf="errorMessages.length > 0" class="alert alert-danger" role="alert">
-    <p *ngFor="let message of errorMessages">{{ message }}</p>
-  </div>
-  <div class="mb-3">
-    <label for="login" class="form-label">Email</label>
-    <input [(ngModel)]="authRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">{{ 'login-and-register.password' | translate }}</label>
-    <input [(ngModel)]="authRequest.password" type="password" class="form-control" id="password"
-           placeholder="{{ 'login-and-register.password' | translate }}">
-  </div>
-  <div class="d-flex justify-content-between mg-3 m-lg-3">
-    <button *ngIf="!this.tokenService.isAlreadyLoggedIn()" (click)="login()" type="button" class="btn btn-primary">
-      <em class="fas fa-sign-in-alt">&nbsp; {{ 'login-and-register.sign-in' | translate }}</em>
-    </button>
-    <div>
-      {{ 'login-and-register.dont-have-account' | translate }}&nbsp;
-      <button (click)="register()" type="button" class="btn btn-link">
-        {{ 'login-and-register.register' | translate }}
+<!--<div class="container-fluid card login-container">-->
+<!--  <h3 class="text-center m-lg-2">Login</h3>-->
+<!--  <hr>-->
+<!--  <div *ngIf="errorMessages.length > 0" class="alert alert-danger" role="alert">-->
+<!--    <p *ngFor="let message of errorMessages">{{ message }}</p>-->
+<!--  </div>-->
+<!--  <div class="mb-3">-->
+<!--    <label for="login" class="form-label">Email</label>-->
+<!--    <input [(ngModel)]="authRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">-->
+<!--  </div>-->
+<!--  <div class="mb-3">-->
+<!--    <label for="password" class="form-label">{{ 'login-and-register.password' | translate }}</label>-->
+<!--    <input [(ngModel)]="authRequest.password" type="password" class="form-control" id="password"-->
+<!--           placeholder="{{ 'login-and-register.password' | translate }}">-->
+<!--  </div>-->
+<!--  <div class="d-flex justify-content-between mg-3 m-lg-3">-->
+<!--    <button *ngIf="!this.tokenService.isAlreadyLoggedIn()" (click)="login()" type="button" class="btn btn-primary">-->
+<!--      <em class="fas fa-sign-in-alt">&nbsp; {{ 'login-and-register.sign-in' | translate }}</em>-->
+<!--    </button>-->
+<!--    <div>-->
+<!--      {{ 'login-and-register.dont-have-account' | translate }}&nbsp;-->
+<!--      <button (click)="register()" type="button" class="btn btn-link">-->
+<!--        {{ 'login-and-register.register' | translate }}-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container py-5">
+  <div class="card shadow-lg border-0 rounded-4 p-4 mx-auto" style="max-width: 500px;">
+    <h3 class="text-center mb-3">{{ 'login-and-register.sign-in' | translate }}</h3>
+    <hr class="mb-4">
+
+    <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
+      <ul class="mb-0">
+        <li *ngFor="let message of errorMessages">{{ message }}</li>
+      </ul>
+    </div>
+
+    <div class="mb-3">
+      <label for="login" class="form-label">Email</label>
+      <input [(ngModel)]="authRequest.email"
+             type="email"
+             class="form-control rounded-3"
+             id="login"
+             placeholder="name@example.com">
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="form-label">{{ 'login-and-register.password' | translate }}</label>
+      <input [(ngModel)]="authRequest.password"
+             type="password"
+             class="form-control rounded-3"
+             id="password"
+             placeholder="{{ 'login-and-register.password' | translate }}">
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <button *ngIf="!this.tokenService.isAlreadyLoggedIn()"
+              (click)="login()"
+              type="button"
+              class="btn btn-primary px-4 py-2 rounded-pill shadow-sm">
+        <i class="fas fa-sign-in-alt me-2"></i> {{ 'login-and-register.sign-in' | translate }}
       </button>
+
+      <div class="text-end">
+        <small>{{ 'login-and-register.dont-have-account' | translate }}</small><br>
+        <button (click)="register()" type="button" class="btn btn-link p-0">
+          {{ 'login-and-register.register' | translate }}
+        </button>
+      </div>
     </div>
   </div>
 </div>

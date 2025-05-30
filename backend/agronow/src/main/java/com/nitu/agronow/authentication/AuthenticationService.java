@@ -111,7 +111,11 @@ public class AuthenticationService {
         claims.put("fullName", user.getFullName());
 
         var jwtToken = jwtService.generateToken(claims, user);
-        return AuthenticationResponse.builder().token(jwtToken).build();
+        return AuthenticationResponse
+                .builder()
+                .token(jwtToken)
+                .id(user.getId())
+                .build();
     }
 
     public void activateAccount(String token) throws MessagingException {

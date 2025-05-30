@@ -1,12 +1,26 @@
-<div class="container">
-  <div *ngFor="let market of markets" class="card mb-3 w-75">
-    <img src="{{ market.imageUrl }}"
-         class="card-img-top photo" alt="{{ market.name }}">
+<div class="container py-4">
+  <div *ngFor="let market of markets" class="card mb-4 shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 800px;">
+
+    <img [src]="market.imageUrl"
+         class="card-img-top object-fit-cover"
+         [alt]="market.name"
+         style="height: 250px; object-fit: cover;">
+
     <div class="card-body">
-      <h5 class="card-title">{{ market.name }} - {{ market.location }}</h5>
-      <p class="card-text">{{ market.description }}</p>
-      <a class="btn btn-primary" (click)="goToMarket(market.id ?? 0)">{{ 'markets.to-stalls' | translate }}</a>
-      <p class="card-text"><small class="text-muted">{{ 'markets.schedule' | translate }} {{ market.schedule }}</small></p>
+      <h4 class="card-title fw-bold mb-2">
+        {{ market.name }} <span class="text-muted fs-6">– {{ market.location }}</span>
+      </h4>
+
+      <p class="card-text mb-3">
+        {{ market.description }}
+      </p>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <a class="btn btn-outline-primary px-4 rounded-pill" (click)="goToMarket(market.id ?? 0)">
+          {{ 'markets.to-stalls' | translate }}
+        </a>
+        <small class="text-muted">{{ 'markets.schedule' | translate }}: {{ market.schedule }}</small>
+      </div>
     </div>
   </div>
 </div>

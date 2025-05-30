@@ -27,10 +27,14 @@
   "navigation-bar": {
     "home": "Acasă",
     "markets": "Piețe",
-    "change-language": "Schimbă Limba"
+    "profile": "Profil",
+    "logout": "Delogare",
+    "change-language": "Schimbă Limba",
+    "requests": "Cereri"
   },
   "profile": {
-    "need-to-login-first": "Trebuie să te loghezi întâi!"
+    "need-to-login-first": "Trebuie să te loghezi întâi!",
+    "activated": "Cont Activat"
   },
   "markets": {
     "schedule": "Program funcționare: ",
@@ -38,5 +42,26 @@
   },
   "stalls": {
     "order": "Comandă"
+  },
+  "requests": {
+    "title": "Cereri Rol",
+    "type": "Tip Cerere",
+    "message": "Mesaj",
+    "message-place-holder": "Introdu un mesaj pentru cererea respectivă",
+    "links": "Link-uri",
+    "links-place-holder": "Introdu link-uri despre tipul tău de cerere (CV, Imagini Piață, Experiența ta etc..)",
+    "send": "Trimite",
+    "your-request": "Cererile Tale",
+    "createdAt": "Creat La",
+    "types": {
+      "0": "Administrator",
+      "1": "Proprietar Piață",
+      "2": "Proprietar Tarabă"
+    },
+    "status-type": {
+      "0": "În Așteptare",
+      "1": "Acceptat",
+      "2": "Respins"
+    }
   }
 }

@@ -10,6 +10,7 @@ enum pages {
   HOME,
   PROFILE,
   MARKETS,
+  REQUESTS,
 }
 
 @Component({
@@ -29,7 +30,8 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
     [pages.HOME]: "home",
     [pages.LOGIN]: "login",
     [pages.PROFILE]: "profile",
-    [pages.MARKETS]: "markets"
+    [pages.MARKETS]: "markets",
+    [pages.REQUESTS]: "requests",
   };
 
   constructor(

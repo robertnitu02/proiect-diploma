@@ -1,35 +1,42 @@
 <div class="d-flex flex-column min-vh-100">
-  <div class="m-lg-4 flex-grow-1">
-    <div class="container">
-      <h1 class="display-3">
-        <img src="https://i.imgur.com/foH99ZV.png" style="width: 150px; height: 150px" alt="logo" />
-        AgroNOW
-      </h1>
-      <p>{{ 'home-page.first-paragraph' | translate }}</p>
-      <p><a class="btn btn-primary btn-lg" role="button" (click)="goToRegister()">{{ 'login-and-register.register-now' | translate }} &raquo;</a></p>
+  <div class="flex-grow-1 py-5">
+    <div class="container text-center mb-5">
+      <img src="https://i.imgur.com/foH99ZV.png"
+           alt="logo"
+           class="mb-3"
+           style="width: 120px; height: 120px;" />
+      <h1 class="display-3 fw-bold">AgroNOW</h1>
+      <p class="lead mt-3">{{ 'home-page.first-paragraph' | translate }}</p>
+      <a class="btn btn-primary btn-lg mt-2 px-4 rounded-pill" (click)="goToRegister()">
+        {{ 'login-and-register.register-now' | translate }} &raquo;
+      </a>
     </div>
 
-    <div class="container" style="padding-top: 2rem">
-      <div class="row">
+    <div class="container">
+      <div class="row text-center g-4">
         <div class="col-md-4">
-          <h2>{{ 'home-page.header-1' | translate }}</h2>
-          <p>{{ 'home-page.header-1-description' | translate }}</p>
+          <div class="card h-100 shadow-sm rounded-4 p-4">
+            <h4 class="card-title">{{ 'home-page.header-1' | translate }}</h4>
+            <p class="card-text">{{ 'home-page.header-1-description' | translate }}</p>
+          </div>
         </div>
         <div class="col-md-4">
-          <h2>{{ 'home-page.header-2' | translate }}</h2>
-          <p>{{ 'home-page.header-2-description' | translate }}</p>
+          <div class="card h-100 shadow-sm rounded-4 p-4">
+            <h4 class="card-title">{{ 'home-page.header-2' | translate }}</h4>
+            <p class="card-text">{{ 'home-page.header-2-description' | translate }}</p>
+          </div>
         </div>
         <div class="col-md-4">
-          <h2>{{ 'home-page.header-3' | translate }}</h2>
-          <p>{{ 'home-page.header-3-description' | translate }}</p>
+          <div class="card h-100 shadow-sm rounded-4 p-4">
+            <h4 class="card-title">{{ 'home-page.header-3' | translate }}</h4>
+            <p class="card-text">{{ 'home-page.header-3-description' | translate }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="bg-body-tertiary text-center text-lg-start">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      Nițu Robert-Ionuț © SCSS 2025
-    </div>
+  <footer class="bg-light mt-auto text-center py-3 border-top">
+    <small class="text-muted">Nițu Robert-Ionuț © FIIR IAII 2025</small>
   </footer>
 </div>

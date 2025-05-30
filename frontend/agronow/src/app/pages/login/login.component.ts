@@ -38,6 +38,10 @@ export class LoginComponent {
     }).subscribe({
       next: (res: AuthenticationResponse) => {
         this.tokenService.token = res.token as string;
+        if (res.id !== undefined)
+        {
+          this.tokenService.id = +res.id;
+        }
         // route
         console.log(res);
         setTimeout(() => {

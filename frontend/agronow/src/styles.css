@@ -1,7 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
-.login-container {
+.request-container {
   width: 500px !important;
   margin-top: 5%;
 }

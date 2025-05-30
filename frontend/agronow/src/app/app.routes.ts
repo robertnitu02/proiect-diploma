@@ -7,6 +7,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MarketsComponent } from './pages/markets/markets.component';
 import { StallsComponent } from './pages/stalls/stalls.component';
+import { RequestsComponent } from './pages/requests/requests.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'stalls/:id',
     component: StallsComponent,
+  },
+  {
+    path: 'requests',
+    component: RequestsComponent,
   },
   {
     path: '',
