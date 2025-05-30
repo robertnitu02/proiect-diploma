@@ -37,6 +37,23 @@
     </div>
 
     <div class="mb-4">
+      <label for="imageUrl" class="form-label">{{ 'login-and-register.image-url' | translate }}</label>
+      <input [(ngModel)]="registerRequest.imageUrl"
+             type="url"
+             class="form-control rounded-3"
+             id="imageUrl"
+             placeholder="{{ 'login-and-register.image-url-placeholder' | translate }}">
+    </div>
+
+    <div class="text-center mb-4" *ngIf="registerRequest.imageUrl">
+      <img [src]="registerRequest.imageUrl"
+           alt="Profile preview"
+           class="rounded-circle shadow-sm"
+           style="width: 100px; height: 100px; object-fit: cover;">
+      <p class="small text-muted mt-2">{{ 'login-and-register.image-preview' | translate }}</p>
+    </div>
+
+    <div class="mb-4">
       <label for="password" class="form-label">{{ 'login-and-register.password' | translate }}</label>
       <input [(ngModel)]="registerRequest.password"
              type="password"

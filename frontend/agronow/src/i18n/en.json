@@ -13,7 +13,10 @@
     "activate-successfully-title": "Activation Successful!",
     "activate-bad-title": "Activation failed!",
     "activate-successfully": "Your account has been successfully activated!\nNow you can proceed to Login",
-    "activate-bad": "Token has been expired or invalid!"
+    "activate-bad": "Token has been expired or invalid!",
+    "image-url": "Profile Picture",
+    "image-url-placeholder": "Enter Image Url",
+    "image-preview": "Profile Image Preview"
   },
   "home-page": {
     "first-paragraph": "AgroNOW is the digital solution dedicated to modernizing agri-food markets by automating and streamlining commercial activities. Our platform connects local producers with consumers through an intuitive and accessible interface. With AgroNOW, tradition meets innovation in real time.",
@@ -58,6 +61,7 @@
       "1": "Market",
       "2": "Stall"
     },
+    "status": "Status",
     "status-type": {
       "0": "Pending",
       "1": "Accepted",

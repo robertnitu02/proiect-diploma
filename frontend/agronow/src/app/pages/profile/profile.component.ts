@@ -5,12 +5,14 @@ import { UserService } from '../../services/services/user.service';
 import { UserResponse } from '../../services/models/user-response';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   imports: [
     NgIf,
-    TranslatePipe
+    TranslatePipe,
+    FormsModule
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'

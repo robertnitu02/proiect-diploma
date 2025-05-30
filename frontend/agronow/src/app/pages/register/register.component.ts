@@ -28,7 +28,7 @@ export class RegisterComponent {
   ) {
   }
 
-  registerRequest: RegistrationRequest = {};
+  registerRequest: RegistrationRequest = { imageUrl: 'https://i.imgur.com/6jmGZxO.png' };
   errorMessages: Array<string> = [];
 
   register() {

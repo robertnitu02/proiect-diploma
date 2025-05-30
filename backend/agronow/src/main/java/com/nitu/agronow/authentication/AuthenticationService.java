@@ -47,6 +47,7 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .enabled(false)
+                .imageUrl(request.getImageUrl())
                 .createdDate(LocalDateTime.now())
                 .admin(0)
                 .market(0)
@@ -148,6 +149,7 @@ public class AuthenticationService {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
+                .imageUrl(user.getImageUrl())
                 .enabled(user.isEnabled())
                 .build();
     }

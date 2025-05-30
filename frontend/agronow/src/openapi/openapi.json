@@ -605,10 +605,10 @@
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "credentialsNonExpired": {
+          "accountNonExpired": {
             "type": "boolean"
           },
-          "accountNonExpired": {
+          "credentialsNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {
@@ -673,6 +673,9 @@
             "type": "string",
             "maxLength": 2147483647,
             "minLength": 8
+          },
+          "imageUrl": {
+            "type": "string"
           }
         }
       },
@@ -716,6 +719,9 @@
             "type": "string"
           },
           "email": {
+            "type": "string"
+          },
+          "imageUrl": {
             "type": "string"
           },
           "enabled": {

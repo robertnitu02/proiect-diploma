@@ -7,5 +7,6 @@ export interface UserResponse {
   enabled?: boolean;
   firstName?: string;
   id?: number;
+  imageUrl?: string;
   lastName?: string;
 }

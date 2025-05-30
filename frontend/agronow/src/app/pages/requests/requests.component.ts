@@ -75,6 +75,11 @@ export class RequestsComponent implements OnInit, OnDestroy {
 
   sendRequest() {
     this.errorMessages = [];
+    if (this.requestData.message === '' || this.requestData.links === '') {
+      this.errorMessages.push('Complete form');
+      return;
+    }
+
     this.sendRequestSub = this.requestService.addRequest({
       body: this.requestData
     }).subscribe({

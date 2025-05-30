@@ -13,7 +13,10 @@
     "activate-successfully-title": "Activare cu succes!",
     "activate-bad-title": "Activare întreruptă!",
     "activate-successfully": "Contul tău a fost activat cu succes!\nAcum poți să mergi la pagina de Login",
-    "activate-bad": "Token-ul a expirat sau este invalid!"
+    "activate-bad": "Token-ul a expirat sau este invalid!",
+    "image-url": "Imagine Profil",
+    "image-url-placeholder": "Introdu link-ul imaginii",
+    "image-preview": "Previzualizare Imagine Profil"
   },
   "home-page": {
     "first-paragraph": "AgroNOW este soluția digitală dedicată modernizării piețelor agroalimentare prin automatizarea și eficientizarea activităților comerciale. Platforma noastră conectează producătorii locali cu consumatorii printr-o interfață intuitivă și accesibilă. Cu AgroNOW, tradiția întâlnește inovația în timp real.",
@@ -58,6 +61,7 @@
       "1": "Proprietar Piață",
       "2": "Proprietar Tarabă"
     },
+    "status": "Status",
     "status-type": {
       "0": "În Așteptare",
       "1": "Acceptat",
