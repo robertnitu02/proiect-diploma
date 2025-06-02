@@ -35,10 +35,10 @@ public class Stall implements Principal {
     private Integer ownerId;
 
     @ManyToOne
-    @JoinColumn(name = "marketId", nullable = false)
+    @JoinColumn(name = "marketId", nullable = true)
     private Market market;
 
     @OneToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "userId", nullable = true)
     private User user;
 }

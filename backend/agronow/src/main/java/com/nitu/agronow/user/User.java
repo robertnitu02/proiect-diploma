@@ -1,5 +1,7 @@
 package com.nitu.agronow.user;
 
+import com.nitu.agronow.market.Market;
+import com.nitu.agronow.stall.Stall;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -42,8 +44,14 @@ public class User implements UserDetails, Principal {
     private String imageUrl;
 
     private Integer admin;
-    private Integer market;
-    private Integer stall;
+
+    @OneToOne
+    @JoinColumn(name = "marketId", nullable = true)
+    private Market market;
+
+    @OneToOne
+    @JoinColumn(name = "stallId", nullable = true)
+    private Stall stall;
 
     @Override
     public String getName() {

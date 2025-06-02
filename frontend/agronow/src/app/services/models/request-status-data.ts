@@ -4,5 +4,6 @@
 
 export interface RequestStatusData {
   id?: number;
+  reason?: string;
   status?: 'PENDING' | 'ACCEPTED' | 'REJECTED';
 }

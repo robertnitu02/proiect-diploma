@@ -29,9 +29,13 @@ public class MarketService {
         finalMarket.setLocation(market.getLocation());
         finalMarket.setDescription(market.getDescription());
         finalMarket.setSchedule(market.getSchedule());
+        finalMarket.setImageUrl(market.getImageUrl());
         finalMarket.setUser(user);
 
         marketRepository.save(finalMarket);
+
+        user.setMarket(finalMarket);
+        userRepository.save(user);
     }
 
     public List<MarketResponse> getAllMarkets() {

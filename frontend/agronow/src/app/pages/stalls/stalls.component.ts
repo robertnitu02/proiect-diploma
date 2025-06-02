@@ -7,13 +7,17 @@ import { MarketResponse } from '../../services/models/market-response';
 import { MarketService } from '../../services/services';
 import {NgForOf, NgIf} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
+import {TokenService} from '../../services/token/token.service';
+import {Stall} from '../../services/models/stall';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-stalls',
   imports: [
     NgIf,
     NgForOf,
-    TranslatePipe
+    TranslatePipe,
+    FormsModule
   ],
   templateUrl: './stalls.component.html',
   styleUrl: './stalls.component.css'
@@ -27,15 +31,31 @@ export class StallsComponent implements OnInit, OnDestroy {
   stalls: StallResponse[] = [];
   stallsSub: Subscription | undefined;
 
+  isMarketOwner = false;
+  stallData: Stall = {
+    description: '',
+    imageUrl: '',
+    marketPlacedId: 0,
+    name: '',
+    products: '',
+    schedule: '',
+    ownerId: 0
+  };
+  createStallSub: Subscription | undefined = undefined;
+
   constructor(
     private route: ActivatedRoute,
     private stallsService: StallService,
     private marketService: MarketService,
+    private tokenService: TokenService
   ) {}
 
   ngOnInit() {
     this.marketId = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.marketId);
+
+    this.isMarketOwner = this.tokenService.market === this.marketId;
+    console.log(this.marketId + ' vs ' + this.tokenService.market);
 
     this.stallsSub = this.stallsService.getStallsByMarketId({
       id: this.marketId
@@ -72,5 +92,30 @@ export class StallsComponent implements OnInit, OnDestroy {
       console.log('marketSub unsubscribed');
       this.marketSub.unsubscribe();
     }
+  }
+
+  createStall() {
+    if (this.stallData.name === '' || this.stallData.description === '' ||
+        this.stallData.schedule === '' || this.stallData.products === '' ||
+        this.stallData.imageUrl === '' || this.stallData.ownerId === 0) {
+      return;
+    }
+
+    this.stallData.marketPlacedId = this.marketId;
+
+    this.createStallSub = this.stallsService.addStall({
+      body: this.stallData
+    }).subscribe({
+      next: (data) => {
+        console.log('Stalls: ' + data);
+        setTimeout(() => {
+          console.log('enter');
+          window.location.reload();
+        }, 2000);
+      },
+      error: (error: Error) => {
+        console.log(error);
+      }
+    });
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="this.tokenService.isAlreadyLoggedIn() else needToLoginFirst" class="content">
+  <div *ngIf="this.tokenService.isAlreadyLoggedIn() else needToLoginFirst">
     <div *ngIf="hasRequests" class="container py-4">
       <div class="card shadow border-0 p-4">
         <h3 class="text-center mb-4">{{ 'requests.your-request' | translate }}</h3>
@@ -7,7 +7,7 @@
           <div class="col-md-6" *ngFor="let request of userRequests">
             <div class="card h-100 border-light shadow-sm rounded-4 p-3">
               <div class="d-flex align-items-center mb-3">
-                <img [src]="request.userImageUrl || 'https://via.placeholder.com/50'"
+                <img [src]="request.userImageUrl"
                      alt="User"
                      class="rounded-circle me-3 border"
                      width="50" height="50">
@@ -17,14 +17,23 @@
                 </div>
               </div>
 
-              <p class="mb-1"><strong>{{ 'requests.type' | translate }}:</strong> {{ ('requests.types.' + request.type) | translate }}</p>
-              <p class="mb-1"><strong>{{ 'requests.status' | translate }}:</strong> {{ ('requests.status-type.' + request.status) | translate }}</p>
-              <p class="mb-1"><strong>{{ 'requests.message' | translate }}:</strong> {{ request.message }}</p>
-              <p class="mb-3">
+              <p class="mb-1">
+                <strong>{{ 'requests.type' | translate }}:</strong> {{ ('requests.types.' + request.type) | translate }}
+              </p>
+              <p class="mb-1">
                 <strong>{{ 'requests.links' | translate }}:</strong>
-                <a *ngIf="request.links" [href]="request.links" target="_blank" class="link-primary text-decoration-underline">
+                <span *ngIf="request.links" class="link-primary">
                   {{ request.links }}
-                </a>
+                </span>
+              </p>
+              <p class="mb-1">
+                <strong>{{ 'requests.status' | translate }}:</strong> {{ ('requests.status-type.' + request.status) | translate }}
+              </p>
+              <p class="mb-1" *ngIf="request.reason !== ''">
+                <strong>{{ 'requests.reason' | translate }}:</strong> {{ request.reason }}
+              </p>
+              <p class="mb-3">
+                <strong>{{ 'requests.message' | translate }}:</strong> {{ request.message }}
               </p>
 
               <div class="text-muted small">
@@ -36,6 +45,69 @@
         </div>
       </div>
     </div>
+
+    <div *ngIf="isAdmin" class="container py-4">
+      <div class="card shadow border-0 p-4">
+        <h3 class="text-center mb-4">{{ 'requests.admin-requests' | translate }}</h3>
+        <div class="row g-4">
+          <div class="col-md-6" *ngFor="let request of usersRequests">
+            <div class="card h-100 border-light shadow-sm rounded-4 p-3">
+              <div class="d-flex align-items-center mb-3">
+                <img [src]="request.userImageUrl"
+                     alt="User"
+                     class="rounded-circle me-3 border"
+                     width="50" height="50">
+                <div>
+                  <h5 class="mb-0 fw-semibold">{{ request.userFullName }}</h5>
+                  <small class="text-muted">{{ request.userEmail }}</small>
+                </div>
+              </div>
+
+              <p class="mb-1">
+                <strong>{{ 'requests.type' | translate }}:</strong> {{ ('requests.types.' + request.type) | translate }}
+              </p>
+              <p class="mb-1">
+                <strong>{{ 'requests.status' | translate }}:</strong> {{ ('requests.status-type.' + request.status) | translate }}
+              </p>
+              <p class="mb-1">
+                <strong>{{ 'requests.message' | translate }}:</strong> {{ request.message }}
+              </p>
+              <p class="mb-3">
+                <strong>{{ 'requests.links' | translate }}:</strong>
+                <span *ngIf="request.links" class="link-primary">
+                  {{ request.links }}
+                </span>
+              </p>
+
+              <div class="text-muted small mb-3">
+                <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
+                <div *ngIf="request.acceptedAt"><strong>{{ 'requests.acceptedAt' | translate }}:</strong> {{ request.acceptedAt | date:'short' }}</div>
+              </div>
+
+              <div *ngIf="request.status === 0" class="border-top pt-3 mt-3">
+                <label class="form-label fw-semibold">{{ 'requests.admin-action' | translate }}</label>
+                <select class="form-select mb-2"
+                        [(ngModel)]="requestUpdateData[request.id!].status">
+                  <option value="ACCEPTED">{{ 'requests.approve' | translate }}</option>
+                  <option value="REJECTED">{{ 'requests.reject' | translate }}</option>
+                </select>
+
+                <textarea class="form-control mb-3"
+                          rows="3"
+                          [(ngModel)]="requestUpdateData[request.id!].reason"
+                          placeholder="{{ 'requests.reason-placeholder' | translate }}"></textarea>
+
+                <button class="btn btn-outline-primary w-100"
+                        (click)="submitRequestAnswer(request.id!)">
+                  {{ 'requests.submit' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div *ngIf="isRequestFormActive" class="container py-4">
       <div class="card shadow border-0 p-4 rounded-4">
@@ -50,9 +122,8 @@
         <div class="mb-3">
           <label for="requestType" class="form-label fw-medium">{{ 'requests.type' | translate }}</label>
           <select [(ngModel)]="requestData.type" class="form-select" id="requestType">
-            <option *ngFor="let type of requestTypes" [value]="type">
-              {{ ('requests.types.' + type) | translate }}
-            </option>
+            <option value="0">{{ 'requests.types.0' | translate }}</option>
+            <option value="1">{{ 'requests.types.1' | translate }}</option>
           </select>
         </div>
 
@@ -63,7 +134,7 @@
                     id="requestMessage"
                     rows="4"
                     placeholder="{{ 'requests.message-place-holder' | translate }}">
-    </textarea>
+          </textarea>
         </div>
 
         <div class="mb-4">
@@ -73,7 +144,24 @@
                     id="requestLinks"
                     rows="2"
                     placeholder="{{ 'requests.links-place-holder' | translate }}">
-    </textarea>
+          </textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="imageUrl" class="form-label">{{ 'requests.image-url' | translate }}</label>
+          <input [(ngModel)]="requestData.imageUrl"
+                 type="url"
+                 class="form-control rounded-3"
+                 id="imageUrl"
+                 placeholder="{{ 'requests.image-url-placeholder' | translate }}">
+        </div>
+
+        <div class="text-center mb-4" *ngIf="requestData.imageUrl">
+          <img [src]="requestData.imageUrl"
+               alt="Profile preview"
+               class="rounded-circle shadow-sm"
+               style="width: 100px; height: 100px; object-fit: cover;">
+          <p class="small text-muted mt-2">{{ 'requests.image-preview' | translate }}</p>
         </div>
 
         <div class="d-flex justify-content-end">

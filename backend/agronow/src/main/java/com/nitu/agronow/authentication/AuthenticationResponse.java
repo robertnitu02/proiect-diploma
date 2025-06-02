@@ -9,7 +9,10 @@ import lombok.Setter;
 @Builder
 public class AuthenticationResponse {
 
-    private String token;
     private Integer id;
+    private String token;
+    private Integer admin;
+    private Integer marketId;
+    private Integer stallId;
 
 }

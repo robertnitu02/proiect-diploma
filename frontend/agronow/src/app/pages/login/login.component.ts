@@ -39,10 +39,13 @@ export class LoginComponent {
       next: (res: AuthenticationResponse) => {
         this.tokenService.token = res.token as string;
         if (res.id !== undefined)
-        {
           this.tokenService.id = +res.id;
-        }
-        // route
+        if (res.admin !== undefined)
+          this.tokenService.admin = +res.admin;
+        if (res.marketId !== undefined)
+          this.tokenService.market = +res.marketId;
+        if (res.stallId !== undefined)
+          this.tokenService.stall = +res.stallId;
         console.log(res);
         setTimeout(() => {
           this.router.navigate(['/home']);

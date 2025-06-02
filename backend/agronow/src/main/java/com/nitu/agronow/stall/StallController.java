@@ -18,7 +18,7 @@ public class StallController {
     private final StallService stallService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addMarket(@RequestBody Stall stall) {
+    public ResponseEntity<?> addStall(@RequestBody Stall stall) {
         stallService.addStall(stall);
         return ResponseEntity.accepted().build();
     }

@@ -43,6 +43,9 @@ public class StallService {
         finalStall.setUser(user);
 
         stallRepository.save(finalStall);
+
+        user.setStall(finalStall);
+        userRepository.save(user);
     }
 
     public List<StallResponse> getAllStallsByMarketId(Integer marketId) {

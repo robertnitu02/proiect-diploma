@@ -50,8 +50,6 @@ public class AuthenticationService {
                 .imageUrl(request.getImageUrl())
                 .createdDate(LocalDateTime.now())
                 .admin(0)
-                .market(0)
-                .stall(0)
                 .build();
         userRepository.save(user);
 
@@ -116,6 +114,9 @@ public class AuthenticationService {
                 .builder()
                 .token(jwtToken)
                 .id(user.getId())
+                .admin(user.getAdmin())
+                .marketId(user.getMarket().getId())
+                .stallId(user.getStall().getId())
                 .build();
     }
 

@@ -11,8 +11,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { addMarket } from '../fn/stall/add-market';
-import { AddMarket$Params } from '../fn/stall/add-market';
+import { addStall } from '../fn/stall/add-stall';
+import { AddStall$Params } from '../fn/stall/add-stall';
 import { getStall } from '../fn/stall/get-stall';
 import { GetStall$Params } from '../fn/stall/get-stall';
 import { getStallsByMarketId } from '../fn/stall/get-stalls-by-market-id';
@@ -25,29 +25,29 @@ export class StallService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `addMarket()` */
-  static readonly AddMarketPath = '/stalls/add';
+  /** Path part for operation `addStall()` */
+  static readonly AddStallPath = '/stalls/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addMarket()` instead.
+   * To access only the response body, use `addStall()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addMarket$Response(params: AddMarket$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+  addStall$Response(params: AddStall$Params, context?: HttpContext): Observable<StrictHttpResponse<{
 }>> {
-    return addMarket(this.http, this.rootUrl, params, context);
+    return addStall(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `addMarket$Response()` instead.
+   * To access the full response (for headers, for example), `addStall$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addMarket(params: AddMarket$Params, context?: HttpContext): Observable<{
+  addStall(params: AddStall$Params, context?: HttpContext): Observable<{
 }> {
-    return this.addMarket$Response(params, context).pipe(
+    return this.addStall$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
 }>): {
 } => r.body)

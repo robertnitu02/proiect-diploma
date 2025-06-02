@@ -21,6 +21,18 @@ public class RequestService {
     }
 
     public void addRequest(Request request) {
+        List<Request> userRequests = requestRepository
+                .findAll()
+                .stream()
+                .filter(requestData ->
+                        requestData.getUser().getId().equals(request.getRequesterId()) &&
+                        requestData.getType().equals(request.getType()) &&
+                        requestData.getStatus() == RequestStatus.PENDING.ordinal())
+                .toList();
+        if (!userRequests.isEmpty()) {
+            throw new EntityNotFoundException("Can't add Request, already created one with this type.");
+        }
+
         User user = userRepository
                 .findById(request.getRequesterId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
@@ -30,6 +42,8 @@ public class RequestService {
         requestToAdd.setStatus(RequestStatus.PENDING.ordinal());
         requestToAdd.setMessage(request.getMessage());
         requestToAdd.setLinks(request.getLinks());
+        requestToAdd.setImageUrl(request.getImageUrl());
+        requestToAdd.setReason("");
         requestToAdd.setCreatedAt(LocalDateTime.now());
         requestToAdd.setAcceptedAt(null);
         requestToAdd.setUser(user);
@@ -67,13 +81,24 @@ public class RequestService {
                 .orElseThrow(() -> new EntityNotFoundException("Request not found"));
     }
 
-    public void setRequestStatus(Integer id, RequestStatus status) {
+    public void setRequestStatus(RequestStatusData requestStatusData) {
         Request request = requestRepository
-                .findById(id)
+                .findById(requestStatusData.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Request not found"));
 
-        request.setStatus(status.ordinal());
+        request.setStatus(requestStatusData.getStatus().ordinal());
+        request.setReason(requestStatusData.getReason());
+        request.setAcceptedAt(LocalDateTime.now());
         requestRepository.save(request);
+
+        User user = request.getUser();
+        if (request.getType() == RequestTypes.ADMINISTRATOR.ordinal())
+            user.setAdmin(1);
+//        else if (request.getType() == RequestTypes.MARKET.ordinal())
+//            user.setMarket(1);
+//        else if (request.getType() == RequestTypes.STALL.ordinal())
+//            user.setStall(1);
+        userRepository.save(user);
     }
 
     private RequestResponse toRequestResponse(Request request) {
@@ -85,6 +110,8 @@ public class RequestService {
                 .status(request.getStatus())
                 .message(request.getMessage())
                 .links(request.getLinks())
+                .imageUrl(request.getImageUrl())
+                .reason(request.getReason())
                 .createdAt(request.getCreatedAt())
                 .acceptedAt(request.getAcceptedAt())
                 .userId(user.getId())

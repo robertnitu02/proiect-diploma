@@ -8,10 +8,10 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { Stall } from '../../models/stall';
+import { Market } from '../../models/market';
 
 export interface AddMarket$Params {
-      body: Stall
+      body: Market
 }
 
 export function addMarket(http: HttpClient, rootUrl: string, params: AddMarket$Params, context?: HttpContext): Observable<StrictHttpResponse<{
@@ -32,4 +32,4 @@ export function addMarket(http: HttpClient, rootUrl: string, params: AddMarket$P
   );
 }
 
-addMarket.PATH = '/stalls/add';
+addMarket.PATH = '/markets/add';

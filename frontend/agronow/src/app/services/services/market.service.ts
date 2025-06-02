@@ -11,8 +11,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { addMarket1 } from '../fn/market/add-market-1';
-import { AddMarket1$Params } from '../fn/market/add-market-1';
+import { addMarket } from '../fn/market/add-market';
+import { AddMarket$Params } from '../fn/market/add-market';
 import { getAllMarkets } from '../fn/market/get-all-markets';
 import { GetAllMarkets$Params } from '../fn/market/get-all-markets';
 import { getMarket } from '../fn/market/get-market';
@@ -25,29 +25,29 @@ export class MarketService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `addMarket1()` */
-  static readonly AddMarket1Path = '/markets/add';
+  /** Path part for operation `addMarket()` */
+  static readonly AddMarketPath = '/markets/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addMarket1()` instead.
+   * To access only the response body, use `addMarket()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addMarket1$Response(params: AddMarket1$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+  addMarket$Response(params: AddMarket$Params, context?: HttpContext): Observable<StrictHttpResponse<{
 }>> {
-    return addMarket1(this.http, this.rootUrl, params, context);
+    return addMarket(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `addMarket1$Response()` instead.
+   * To access the full response (for headers, for example), `addMarket$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addMarket1(params: AddMarket1$Params, context?: HttpContext): Observable<{
+  addMarket(params: AddMarket$Params, context?: HttpContext): Observable<{
 }> {
-    return this.addMarket1$Response(params, context).pipe(
+    return this.addMarket$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
 }>): {
 } => r.body)

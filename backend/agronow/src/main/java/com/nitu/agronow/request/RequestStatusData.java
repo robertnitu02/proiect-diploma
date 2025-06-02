@@ -8,6 +8,7 @@ import lombok.Setter;
 public class RequestStatusData {
 
     private Integer id;
-    private RequestStatus status;
+    private RequestStatus Status;
+    private String reason;
 
 }

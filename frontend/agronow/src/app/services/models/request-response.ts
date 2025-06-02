@@ -6,8 +6,10 @@ export interface RequestResponse {
   acceptedAt?: string;
   createdAt?: string;
   id?: number;
+  imageUrl?: string;
   links?: string;
   message?: string;
+  reason?: string;
   status?: number;
   type?: number;
   userEmail?: string;

@@ -41,10 +41,28 @@
   },
   "markets": {
     "schedule": "Schedule: ",
-    "to-stalls": "To Stalls"
+    "to-stalls": "To Stalls",
+    "create-market": "Markets - Admin Panel",
+    "name": "Market Name",
+    "location": "Location",
+    "description": "Description",
+    "image-url": "Image",
+    "image-preview": "Market Image Preview",
+    "owner-id": "Owner ID",
+    "add-market": "Create"
   },
   "stalls": {
-    "order": "Order"
+    "order": "Order",
+    "no-stalls": "No Stalls right now ...",
+    "create-stall": "Create Stall",
+    "name": "Stall Name",
+    "description": "Description",
+    "schedule": "Schedule",
+    "products": "Products",
+    "products-placeholder": "Enter products x quantity",
+    "image-url": "Stall Image",
+    "owner-id": "Stall Owner ID",
+    "add-stall": "Create"
   },
   "requests": {
     "title": "Role Requests",
@@ -52,10 +70,12 @@
     "message": "Message",
     "message-place-holder": "Enter an specific message for your request",
     "links": "Links",
+    "reason": "Reason",
     "links-place-holder": "Enter some links about your type of request (CV, Market images, Your experience etc..)",
     "send": "Send",
     "your-request": "Your Requests",
     "createdAt": "Created At",
+    "acceptedAt": "Answered At",
     "types": {
       "0": "Administrator",
       "1": "Market",
@@ -66,6 +86,15 @@
       "0": "Pending",
       "1": "Accepted",
       "2": "Rejected"
-    }
+    },
+    "image-url": "Request Image",
+    "image-url-placeholder": "Enter an image for your request image",
+    "image-preview": "Request Image Preview",
+    "admin-requests": "Users Requests",
+    "admin-action": "Admin Panel",
+    "approve": "Approve",
+    "reject": "Reject",
+    "reason-placeholder": "Reason ...",
+    "submit": "Submit"
   }
 }

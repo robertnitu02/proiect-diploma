@@ -46,7 +46,7 @@
         "tags": [
           "Stall"
         ],
-        "operationId": "addMarket",
+        "operationId": "addStall",
         "requestBody": {
           "content": {
             "application/json": {
@@ -106,7 +106,7 @@
         "tags": [
           "Market"
         ],
-        "operationId": "addMarket_1",
+        "operationId": "addMarket",
         "requestBody": {
           "content": {
             "application/json": {
@@ -462,6 +462,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "reason": {
+            "type": "string"
+          },
           "status": {
             "type": "string",
             "enum": [
@@ -583,12 +586,10 @@
             "format": "int32"
           },
           "market": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/Market"
           },
           "stall": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/Stall"
           },
           "name": {
             "type": "string"
@@ -631,6 +632,12 @@
             "type": "string"
           },
           "links": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "reason": {
             "type": "string"
           },
           "createdAt": {
@@ -696,10 +703,22 @@
       "AuthenticationResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "token": {
             "type": "string"
           },
-          "id": {
+          "admin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stallId": {
             "type": "integer",
             "format": "int32"
           }
@@ -783,6 +802,12 @@
             "type": "string"
           },
           "links": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "reason": {
             "type": "string"
           },
           "createdAt": {

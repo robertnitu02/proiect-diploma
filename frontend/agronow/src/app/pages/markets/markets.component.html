@@ -1,4 +1,86 @@
 <div class="container py-4">
+  <div *ngIf="isAdmin" class="card shadow border-0 rounded-4 p-4 mb-5 mx-auto" style="max-width: 800px;">
+    <h3 class="text-center mb-4">{{ 'markets.create-market' | translate }}</h3>
+    <hr class="mb-4">
+
+      <div class="mb-3">
+        <label for="marketName" class="form-label">{{ 'markets.name' | translate }}</label>
+        <input [(ngModel)]="marketData.name"
+               name="marketName"
+               type="text"
+               class="form-control rounded-3"
+               id="marketName"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="marketLocation" class="form-label">{{ 'markets.location' | translate }}</label>
+        <input [(ngModel)]="marketData.location"
+               name="marketLocation"
+               type="text"
+               class="form-control rounded-3"
+               id="marketLocation"
+               required>
+      </div>
+
+      <div class="mb-3">
+          <label for="marketDescription" class="form-label">{{ 'markets.description' | translate }}</label>
+        <textarea [(ngModel)]="marketData.description"
+                  name="marketDescription"
+                  class="form-control rounded-3"
+                  id="marketDescription"
+                  rows="3"
+                  required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="marketSchedule" class="form-label">{{ 'markets.schedule' | translate }}</label>
+        <input [(ngModel)]="marketData.schedule"
+               name="marketSchedule"
+               type="text"
+               class="form-control rounded-3"
+               id="marketSchedule"
+               placeholder="ex: 08:00 - 16:00"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="marketImageUrl" class="form-label">{{ 'markets.image-url' | translate }}</label>
+        <input [(ngModel)]="marketData.imageUrl"
+               name="marketImageUrl"
+               type="url"
+               class="form-control rounded-3"
+               id="marketImageUrl"
+               required>
+      </div>
+
+      <div class="text-center mb-4" *ngIf="marketData.imageUrl">
+        <img [src]="marketData.imageUrl"
+             alt="Profile preview"
+             class="rounded-circle shadow-sm"
+             style="width: 100px; height: 100px; object-fit: cover;">
+        <p class="small text-muted mt-2">{{ 'markets.image-preview' | translate }}</p>
+      </div>
+
+      <div class="mb-3">
+        <label for="ownerId" class="form-label">{{ 'markets.owner-id' | translate }}</label>
+        <input [(ngModel)]="marketData.ownerId"
+               name="ownerId"
+               type="text"
+               class="form-control rounded-3"
+               id="ownerId"
+               required>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit"
+                class="btn btn-success px-4 py-2 rounded-pill shadow-sm"
+                (click)="createMarket()">
+          <i class="fas fa-plus-circle me-2"></i> {{ 'markets.add-market' | translate }}
+        </button>
+      </div>
+  </div>
+
   <div *ngFor="let market of markets" class="card mb-4 shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 800px;">
 
     <img [src]="market.imageUrl"

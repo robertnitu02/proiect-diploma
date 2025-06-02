@@ -39,7 +39,7 @@ public class RequestController {
 
     @PutMapping("/update")
     public ResponseEntity<?> updateRequestStatus(@RequestBody RequestStatusData requestStatusData) {
-        requestService.setRequestStatus(requestStatusData.getId(), requestStatusData.getStatus());
+        requestService.setRequestStatus(requestStatusData);
         return ResponseEntity.accepted().build();
     }
 

@@ -41,10 +41,28 @@
   },
   "markets": {
     "schedule": "Program funcționare: ",
-    "to-stalls": "Vezi Tarabele"
+    "to-stalls": "Vezi Tarabele",
+    "create-market": "Piețe - Panou Admin",
+    "name": "Nume Piață",
+    "location": "Locație",
+    "description": "Descriere",
+    "image-url": "Imagine",
+    "image-preview": "Previzualizare Imagine Piață",
+    "owner-id": "ID Proprietar",
+    "add-market": "Creează"
   },
   "stalls": {
-    "order": "Comandă"
+    "order": "Comandă",
+    "no-stalls": "Nu sunt tarabe disponibile ...",
+    "create-stall": "Creează Tarabă",
+    "name": "Nume Tarabă",
+    "description": "Descriere",
+    "schedule": "Program funcționare",
+    "products": "Produse",
+    "products-placeholder": "produs x cantitate",
+    "image-url": "Poză Tarabă",
+    "owner-id": "ID Proprietar",
+    "add-stall": "Creează"
   },
   "requests": {
     "title": "Cereri Rol",
@@ -52,10 +70,12 @@
     "message": "Mesaj",
     "message-place-holder": "Introdu un mesaj pentru cererea respectivă",
     "links": "Link-uri",
+    "reason": "Motiv",
     "links-place-holder": "Introdu link-uri despre tipul tău de cerere (CV, Imagini Piață, Experiența ta etc..)",
     "send": "Trimite",
     "your-request": "Cererile Tale",
     "createdAt": "Creat La",
+    "acceptedAt": "Răspuns La",
     "types": {
       "0": "Administrator",
       "1": "Proprietar Piață",
@@ -66,6 +86,15 @@
       "0": "În Așteptare",
       "1": "Acceptat",
       "2": "Respins"
-    }
+    },
+    "image-url": "Poză cerere",
+    "image-url-placeholder": "Introdu o image pentru cerere",
+    "image-preview": "Previzualizare imagine",
+    "admin-requests": "Cererile Utilizatorilor",
+    "admin-action": "Panou Admin",
+    "approve": "Acceptă",
+    "reject": "Respinge",
+    "reason-placeholder": "Motiv ...",
+    "submit": "Trimite"
   }
 }

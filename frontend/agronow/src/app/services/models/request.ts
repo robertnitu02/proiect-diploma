@@ -7,8 +7,10 @@ export interface Request {
   acceptedAt?: string;
   createdAt?: string;
   id?: number;
+  imageUrl?: string;
   links?: string;
   message?: string;
+  reason?: string;
   requesterId?: number;
   status?: number;
   type?: number;

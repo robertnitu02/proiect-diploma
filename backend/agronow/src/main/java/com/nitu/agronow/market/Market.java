@@ -30,6 +30,6 @@ public class Market implements Principal {
     private Integer ownerId;
 
     @OneToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "userId", nullable = true)
     private User user;
 }

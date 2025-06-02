@@ -24,6 +24,8 @@ public class Request {
     private Integer status;
     private String message;
     private String links;
+    private String imageUrl;
+    private String reason;
 
     private LocalDateTime createdAt;
     private LocalDateTime acceptedAt;
