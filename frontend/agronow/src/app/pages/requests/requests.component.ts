@@ -60,7 +60,7 @@ export class RequestsComponent implements OnInit, OnDestroy {
      }).subscribe({
        next: (res: RequestResponse[]) => {
          console.log(res);
-         this.hasRequests = true;
+         this.hasRequests = res.length > 0;
          this.userRequests = res;
        },
        error: err => {

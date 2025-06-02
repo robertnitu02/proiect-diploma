@@ -95,6 +95,7 @@
     "approve": "Approve",
     "reject": "Reject",
     "reason-placeholder": "Reason ...",
-    "submit": "Submit"
+    "submit": "Submit",
+    "no-requests": "No Requests yet ..."
   }
 }

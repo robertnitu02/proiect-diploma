@@ -1,9 +1,9 @@
 <div class="container">
   <div *ngIf="this.tokenService.isAlreadyLoggedIn() else needToLoginFirst">
-    <div *ngIf="hasRequests" class="container py-4">
+    <div  class="container py-4">
       <div class="card shadow border-0 p-4">
         <h3 class="text-center mb-4">{{ 'requests.your-request' | translate }}</h3>
-        <div class="row g-4">
+        <div *ngIf="hasRequests; else noRequests" class="row g-4">
           <div class="col-md-6" *ngFor="let request of userRequests">
             <div class="card h-100 border-light shadow-sm rounded-4 p-3">
               <div class="d-flex align-items-center mb-3">
@@ -49,7 +49,7 @@
     <div *ngIf="isAdmin" class="container py-4">
       <div class="card shadow border-0 p-4">
         <h3 class="text-center mb-4">{{ 'requests.admin-requests' | translate }}</h3>
-        <div class="row g-4">
+        <div *ngIf="usersRequests.length > 0; else noRequests" class="row g-4">
           <div class="col-md-6" *ngFor="let request of usersRequests">
             <div class="card h-100 border-light shadow-sm rounded-4 p-3">
               <div class="d-flex align-items-center mb-3">
@@ -107,7 +107,6 @@
         </div>
       </div>
     </div>
-
 
     <div *ngIf="isRequestFormActive" class="container py-4">
       <div class="card shadow border-0 p-4 rounded-4">
@@ -175,5 +174,12 @@
 
   <ng-template #needToLoginFirst>
     <h2>{{ 'profile.need-to-login-first' | translate }}</h2>
+  </ng-template>
+  <ng-template #noRequests>
+    <div class="container py-1 text-center">
+      <div class="alert alert-warning rounded-3 shadow-sm">
+        {{ 'requests.no-requests' | translate }}
+      </div>
+    </div>
   </ng-template>
 </div>
