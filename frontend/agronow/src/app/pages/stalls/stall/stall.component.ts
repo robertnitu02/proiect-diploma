@@ -8,7 +8,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { TokenService} from '../../../services/token/token.service';
 import { ProductData } from '../product.data';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {UpdateProduct} from './update-product.data';
+import { UpdateProduct } from './update-product.data';
+import { OrderService } from '../../../services/services/order.service';
+import { Order } from '../../../services/models/order';
 
 @Component({
   selector: 'app-stall',
@@ -24,6 +26,8 @@ import {UpdateProduct} from './update-product.data';
 })
 export class StallComponent implements OnInit, OnDestroy {
 
+  userId: number = -1;
+
   stallId: number = -1;
   stall: StallResponse | undefined;
   stallSub: Subscription | undefined;
@@ -35,14 +39,20 @@ export class StallComponent implements OnInit, OnDestroy {
   stallOwnerProductsData: ProductData[] = [];
   updateSub: Subscription | undefined;
 
+  orderSub: Subscription | undefined;
+  address: string = '';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private tokenService: TokenService,
-    private stallService: StallService) {
+    private stallService: StallService,
+    private orderService: OrderService) {
   }
 
   ngOnInit(): void {
+    this.userId = this.tokenService.id;
+
     this.stallId = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.stallId);
 
@@ -86,6 +96,11 @@ export class StallComponent implements OnInit, OnDestroy {
       this.updateSub.unsubscribe();
       console.log('updateSub unsubscribed');
     }
+
+    if (this.orderSub !== undefined) {
+      this.orderSub.unsubscribe();
+      console.log('orderSub unsubscribed');
+    }
   }
 
   goBack() {
@@ -94,7 +109,34 @@ export class StallComponent implements OnInit, OnDestroy {
 
   submitOrder() {
     const finalOrderData = this.getFinalOrder();
-    console.log(JSON.stringify(finalOrderData));
+    if (finalOrderData.length === 0 || this.address === '')
+      return;
+
+    const data: Order = {
+      products: JSON.stringify(finalOrderData),
+      address: 'WIP',
+      price: +this.calculateTotal(),
+      status: 0,
+      requesterId: this.userId,
+      stallId: this.stallId
+    };
+
+    console.log(data);
+
+    this.orderSub = this.orderService.addOrder({
+      body: data
+    }).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        setTimeout(() => {
+          console.log('enter');
+          window.location.reload();
+        }, 2000);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    });
   }
 
   calculateTotal() {

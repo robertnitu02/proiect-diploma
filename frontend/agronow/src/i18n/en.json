@@ -37,7 +37,14 @@
   },
   "profile": {
     "need-to-login-first": "You need to login first!",
-    "activated": "Activate Account"
+    "activated": "Activate Account",
+    "activated-yes": "Yes",
+    "activated-no": "No",
+    "is-admin": "Administrator",
+    "is-market-owner": "Market Owner",
+    "is-stall-owner": "Stall Owner",
+    "view-market": "View Market",
+    "view-stall": "View Stall"
   },
   "markets": {
     "schedule": "Schedule: ",
@@ -75,7 +82,8 @@
     "place-order": "Place Order",
     "stall-owner-panel": "Stall Owner Panel",
     "stall-owner-info": "From this panel, you will be able to add new products, modify the quantity or price of existing ones, or delete products!",
-    "update-products": "Update"
+    "update-products": "Update",
+    "enter-address": "Introdu adresa"
   },
   "requests": {
     "title": "Role Requests",
@@ -110,5 +118,21 @@
     "reason-placeholder": "Reason ...",
     "submit": "Submit",
     "no-requests": "No Requests yet ..."
+  },
+  "orders": {
+    "title": "Your Orders",
+    "market": "Market Namee",
+    "stall": "Stall Name",
+    "price": "Price",
+    "address": "Address",
+    "order-date": "Order Date",
+    "accepted-date": "Accepted Date",
+    "delivery-date": "Delivery Date",
+    "status": "Status",
+    "status-type": {
+      "0": "In Pending",
+      "1": "In Delivery",
+      "2": "Delivered"
+    }
   }
 }

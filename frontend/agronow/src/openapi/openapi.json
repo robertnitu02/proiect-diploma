@@ -166,7 +166,7 @@
         "tags": [
           "Order"
         ],
-        "operationId": "addRequest_1",
+        "operationId": "addOrder",
         "requestBody": {
           "content": {
             "application/json": {
@@ -795,10 +795,10 @@
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "credentialsNonExpired": {
+          "accountNonExpired": {
             "type": "boolean"
           },
-          "accountNonExpired": {
+          "credentialsNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {

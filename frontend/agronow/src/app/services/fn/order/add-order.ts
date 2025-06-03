@@ -10,13 +10,13 @@ import { RequestBuilder } from '../../request-builder';
 
 import { Order } from '../../models/order';
 
-export interface AddRequest1$Params {
+export interface AddOrder$Params {
       body: Order
 }
 
-export function addRequest1(http: HttpClient, rootUrl: string, params: AddRequest1$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+export function addOrder(http: HttpClient, rootUrl: string, params: AddOrder$Params, context?: HttpContext): Observable<StrictHttpResponse<{
 }>> {
-  const rb = new RequestBuilder(rootUrl, addRequest1.PATH, 'post');
+  const rb = new RequestBuilder(rootUrl, addOrder.PATH, 'post');
   if (params) {
     rb.body(params.body, 'application/json');
   }
@@ -32,4 +32,4 @@ export function addRequest1(http: HttpClient, rootUrl: string, params: AddReques
   );
 }
 
-addRequest1.PATH = '/orders/add';
+addOrder.PATH = '/orders/add';

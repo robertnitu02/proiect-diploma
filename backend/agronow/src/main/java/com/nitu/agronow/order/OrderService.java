@@ -1,5 +1,7 @@
 package com.nitu.agronow.order;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.nitu.agronow.stall.Stall;
 import com.nitu.agronow.stall.StallRepository;
 import com.nitu.agronow.user.User;
@@ -7,7 +9,9 @@ import com.nitu.agronow.user.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Type;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +36,23 @@ public class OrderService {
                 .findById(order.getStallId())
                 .orElseThrow(() -> new EntityNotFoundException("Stall not found"));
 
+        List<ProductData> orderProductsData = toProductDataArray(order.getProducts());
+        List<ProductData> stallProductsData = toProductDataArray(stall.getProducts());
+
+        for (ProductData orderedProduct : orderProductsData) {
+            Integer orderedId = orderedProduct.getId();
+            int orderedQty = Integer.parseInt(orderedProduct.getQuantity());
+
+            for (ProductData stallProduct : stallProductsData) {
+                if (stallProduct.getId().equals(orderedId)) {
+                    int currentQty = Integer.parseInt(stallProduct.getQuantity());
+                    int newQty = Math.max(currentQty - orderedQty, 0);
+                    stallProduct.setQuantity(String.valueOf(newQty));
+                    break;
+                }
+            }
+        }
+
         Order finalOrder = new Order();
         finalOrder.setProducts(order.getProducts());
         finalOrder.setAddress(order.getAddress());
@@ -43,6 +64,9 @@ public class OrderService {
         finalOrder.setUser(user);
 
         orderRepository.save(finalOrder);
+
+        stall.setProducts(toProductDataString(stallProductsData));
+        stallRepository.save(stall);
     }
 
     public List<OrderResponse> getAllOrdersFromStallId(Integer stallId) {
@@ -89,5 +113,17 @@ public class OrderService {
                 .stallName(order.getStall().getName())
                 .stallId(order.getStall().getId())
                 .build();
+    }
+
+    private List<ProductData> toProductDataArray(String data) {
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<ProductData>>() {}.getType();
+        return gson.fromJson(data, listType);
+    }
+
+    private String toProductDataString(List<ProductData> data) {
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<ProductData>>() {}.getType();
+        return gson.toJson(data, listType);
     }
 }

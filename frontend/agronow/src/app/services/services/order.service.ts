@@ -11,8 +11,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { addRequest1 } from '../fn/order/add-request-1';
-import { AddRequest1$Params } from '../fn/order/add-request-1';
+import { addOrder } from '../fn/order/add-order';
+import { AddOrder$Params } from '../fn/order/add-order';
 import { getOrdersFromStallId } from '../fn/order/get-orders-from-stall-id';
 import { GetOrdersFromStallId$Params } from '../fn/order/get-orders-from-stall-id';
 import { getOrdersFromUserId } from '../fn/order/get-orders-from-user-id';
@@ -56,29 +56,29 @@ export class OrderService extends BaseService {
     );
   }
 
-  /** Path part for operation `addRequest1()` */
-  static readonly AddRequest1Path = '/orders/add';
+  /** Path part for operation `addOrder()` */
+  static readonly AddOrderPath = '/orders/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addRequest1()` instead.
+   * To access only the response body, use `addOrder()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addRequest1$Response(params: AddRequest1$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+  addOrder$Response(params: AddOrder$Params, context?: HttpContext): Observable<StrictHttpResponse<{
 }>> {
-    return addRequest1(this.http, this.rootUrl, params, context);
+    return addOrder(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `addRequest1$Response()` instead.
+   * To access the full response (for headers, for example), `addOrder$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addRequest1(params: AddRequest1$Params, context?: HttpContext): Observable<{
+  addOrder(params: AddOrder$Params, context?: HttpContext): Observable<{
 }> {
-    return this.addRequest1$Response(params, context).pipe(
+    return this.addOrder$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
 }>): {
 } => r.body)

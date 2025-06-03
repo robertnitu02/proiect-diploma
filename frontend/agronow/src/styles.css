@@ -1,11 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
-.request-container {
-  width: 500px !important;
-  margin-top: 5%;
-}
-
 body {
   background: linear-gradient(to bottom right, #f8f9fa, #eaeaea);
   margin: 0;

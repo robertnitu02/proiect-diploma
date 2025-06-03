@@ -16,7 +16,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addRequest(@RequestBody Order order) {
+    public ResponseEntity<?> addOrder(@RequestBody Order order) {
         orderService.addOrder(order);
         return ResponseEntity.accepted().build();
     }

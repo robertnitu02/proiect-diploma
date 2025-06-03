@@ -109,6 +109,13 @@
           </div>
         </div>
 
+        <div class="mt-3">
+          <label class="form-label">{{ 'stalls.enter-address' | translate }}</label>
+          <input [(ngModel)]="address"
+                 type="text"
+                 class="form-control rounded-3">
+        </div>
+
         <div class="text-end mt-4">
           <label class="form-label fs-5 fw-semibold d-block mb-3">
             {{ 'stalls.total' | translate }}: {{ calculateTotal() }} RON

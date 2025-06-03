@@ -37,7 +37,14 @@
   },
   "profile": {
     "need-to-login-first": "Trebuie să te loghezi întâi!",
-    "activated": "Cont Activat"
+    "activated": "Cont Activat",
+    "activated-yes": "Da",
+    "activated-no": "Nu",
+    "is-admin": "Administrator",
+    "is-market-owner": "Proprietar Piață",
+    "is-stall-owner": "Proprietar Tarabă",
+    "view-market": "Vezi Piața",
+    "view-stall": "Vezi Taraba"
   },
   "markets": {
     "schedule": "Program funcționare: ",
@@ -75,7 +82,8 @@
     "place-order": "Plasează Comanda",
     "stall-owner-panel": "Panou Proprietar Tarabă",
     "stall-owner-info": "Din acest panou vei putea adăuga produse noi, modifica cantiatea sau prețul celor curente sau șterge produse!",
-    "update-products": "Update"
+    "update-products": "Update",
+    "enter-address": "Introdu adresa"
   },
   "requests": {
     "title": "Cereri Rol",
@@ -110,5 +118,21 @@
     "reason-placeholder": "Motiv ...",
     "submit": "Trimite",
     "no-requests": "Nu sunt cereri momentan ..."
+  },
+  "orders": {
+    "title": "Comenzile Tale",
+    "market": "Nume Piață",
+    "stall": "Nume Tarabă",
+    "price": "Preț",
+    "address": "Adresă",
+    "order-date": "Dată comandă",
+    "accepted-date": "Dată acceptare comandă",
+    "delivery-date": "Dată livrare",
+    "status": "Status",
+    "status-type": {
+      "0": "Comandă Plasată",
+      "1": "În Curs de Livrare",
+      "2": "Livrată"
+    }
   }
 }

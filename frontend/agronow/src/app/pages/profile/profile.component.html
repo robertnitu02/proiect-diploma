@@ -1,31 +1,90 @@
-<div class="container py-4">
-  <div *ngIf="this.tokenService.isAlreadyLoggedIn(); else needToLoginFirst">
-    <div *ngIf="profileData" class="card shadow-lg mx-auto" style="max-width: 400px;">
+<div class="container py-5">
+
+  <div *ngIf="tokenService.isAlreadyLoggedIn(); else needToLoginFirst">
+    <div *ngIf="profileData" class="card shadow-lg mx-auto mb-5 rounded-4" style="max-width: 800px;">
       <div class="card-body text-center">
-        <div class="mb-3">
-          <img src="{{ profileData.imageUrl }}"
-               class="form-control rounded-3"
+
+        <div class="mb-4">
+          <img [src]="profileData.imageUrl"
+               class="rounded-circle border border-2"
                style="width: 100px; height: 100px; object-fit: cover;"
-               alt="imageUrl">
+               alt="User Image">
         </div>
-        <h4 class="card-title mb-1">{{ profileData.firstName }} {{ profileData.lastName }}</h4>
-        <h6 class="card-subtitle mb-3 text-muted">ID: {{ profileData.id }}</h6>
+
+        <h4 class="card-title mb-1 fw-bold">{{ profileData.firstName }} {{ profileData.lastName }}</h4>
+        <h6 class="card-subtitle text-muted mb-4">ID: {{ profileData.id }}</h6>
 
         <ul class="list-group list-group-flush text-start mb-3">
           <li class="list-group-item"><strong>Email:</strong> {{ profileData.email }}</li>
           <li class="list-group-item">
             <strong>{{ 'profile.activated' | translate }}:</strong>
-            <span>
-              {{ profileData.enabled }}
+            <span [class.text-success]="profileData.enabled" [class.text-danger]="!profileData.enabled">
+              {{ (profileData.enabled ? 'profile.activated-yes' : 'profile.activated-no') | translate }}
             </span>
+          </li>
+          <li *ngIf="isAdmin" class="list-group-item"><strong>{{ 'profile.is-admin' | translate }}:</strong> Yes</li>
+          <li *ngIf="marketId !== -1" class="list-group-item">
+            <strong>{{ 'profile.is-market-owner' | translate }}:</strong>
+            <button (click)="goToMarket()"
+                    class="btn btn-outline-success btn-sm rounded-pill ms-2">
+              {{ 'profile.view-market' | translate }}
+            </button>
+          </li>
+          <li *ngIf="stallId !== -1" class="list-group-item">
+            <strong>{{ 'profile.is-stall-owner' | translate }}:</strong>
+            <button class="btn btn-outline-success btn-sm rounded-pill ms-2"
+                    (click)="goToStall()">
+              {{ 'profile.view-stall' | translate }}
+            </button>
           </li>
         </ul>
       </div>
     </div>
+
+    <div *ngIf="ordersData && ordersData.length > 0; else noOrders" class="card shadow-lg mx-auto rounded-4 p-4" style="max-width: 100%;">
+      <h4 class="mb-4 text-center fw-bold text-primary">
+        {{ 'orders.title' | translate }}
+      </h4>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle text-center">
+          <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>{{ 'orders.market' | translate }}</th>
+            <th>{{ 'orders.stall' | translate }}</th>
+            <th>{{ 'orders.price' | translate }}</th>
+            <th>{{ 'orders.address' | translate }}</th>
+            <th>{{ 'orders.order-date' | translate }}</th>
+            <th>{{ 'orders.delivery-date' | translate }}</th>
+            <th>{{ 'orders.accepted-date' | translate }}</th>
+            <th>{{ 'orders.status' | translate }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let order of ordersData; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ order.marketName }}</td>
+            <td>{{ order.stallName }}</td>
+            <td>{{ order.price }} RON</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.orderDate | date: 'short' }}</td>
+            <td>{{ (order.acceptedDate ) || '-' }}</td>
+            <td>{{ (order.deliveryDate | date: 'short') || '-' }}</td>
+            <td>{{ ('orders.status-type.' + order.status) | translate }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #noOrders class="alert alert-warning text-center mt-4">
+      {{ 'orders.no-orders' | translate }}
+    </ng-template>
   </div>
 
   <ng-template #needToLoginFirst>
-    <div class="text-center">
+    <div class="text-center mt-5">
       <h2 class="text-danger">{{ 'profile.need-to-login-first' | translate }}</h2>
       <p class="lead">{{ 'profile.please-login' | translate }}</p>
     </div>
