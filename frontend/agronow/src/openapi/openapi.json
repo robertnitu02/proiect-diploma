@@ -11,6 +11,36 @@
     }
   ],
   "paths": {
+    "/stalls/update": {
+      "put": {
+        "tags": [
+          "Stall"
+        ],
+        "operationId": "updateProducts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStallData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/requests/update": {
       "put": {
         "tags": [
@@ -455,6 +485,18 @@
   },
   "components": {
     "schemas": {
+      "UpdateStallData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "string"
+          }
+        }
+      },
       "RequestStatusData": {
         "type": "object",
         "properties": {
@@ -606,10 +648,10 @@
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "accountNonExpired": {
+          "credentialsNonExpired": {
             "type": "boolean"
           },
-          "credentialsNonExpired": {
+          "accountNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {

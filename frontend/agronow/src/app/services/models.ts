@@ -13,5 +13,6 @@ export type { RequestResponse } from './models/request-response';
 export type { RequestStatusData } from './models/request-status-data';
 export type { Stall } from './models/stall';
 export type { StallResponse } from './models/stall-response';
+export type { UpdateStallData } from './models/update-stall-data';
 export type { User } from './models/user';
 export type { UserResponse } from './models/user-response';

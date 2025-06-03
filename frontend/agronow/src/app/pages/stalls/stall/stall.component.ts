@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StallService } from '../../../services/services/stall.service';
 import { StallResponse } from '../../../services/models/stall-response';
 import { Subscription } from 'rxjs';
-import {NgForOf, NgIf} from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import {TokenService} from '../../../services/token/token.service';
-import {ProductData} from '../product.data';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TokenService} from '../../../services/token/token.service';
+import { ProductData } from '../product.data';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {UpdateProduct} from './update-product.data';
 
 @Component({
   selector: 'app-stall',
@@ -31,6 +32,8 @@ export class StallComponent implements OnInit, OnDestroy {
   orderData: ProductData[] = [];
 
   isStallOwner = false;
+  stallOwnerProductsData: ProductData[] = [];
+  updateSub: Subscription | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -59,9 +62,12 @@ export class StallComponent implements OnInit, OnDestroy {
             this.orderData.push({
               id: el.id,
               name: el.name,
-              quantity: 0
+              quantity: 0,
+              price: el.price
             });
-          })
+          });
+
+          this.stallOwnerProductsData = structuredClone(this.productsData);
         }
       },
       error: err => {
@@ -75,6 +81,11 @@ export class StallComponent implements OnInit, OnDestroy {
       this.stallSub.unsubscribe();
       console.log('stallSub unsubscribed');
     }
+
+    if (this.updateSub !== undefined) {
+      this.updateSub.unsubscribe();
+      console.log('updateSub unsubscribed');
+    }
   }
 
   goBack() {
@@ -82,14 +93,72 @@ export class StallComponent implements OnInit, OnDestroy {
   }
 
   submitOrder() {
+    const finalOrderData = this.getFinalOrder();
+    console.log(JSON.stringify(finalOrderData));
+  }
+
+  calculateTotal() {
+    const finalOrderData = this.getFinalOrder();
+    let price = 0;
+    finalOrderData.forEach(el => {
+      price += (el.quantity * el.price);
+    });
+    return price.toString();
+  }
+
+  private getFinalOrder(): ProductData[] {
     let finalOrderData: ProductData[] = [];
     this.orderData.forEach(el => {
       if (el.quantity > 0 &&
-          el.quantity <= this.productsData[el.id].quantity) {
+        el.quantity <= this.productsData[el.id].quantity) {
         finalOrderData.push(el);
       }
     });
 
-    console.log(JSON.stringify(finalOrderData));
+    return finalOrderData;
+  }
+
+  addProduct() {
+    const data = {
+      id: this.stallOwnerProductsData.length,
+      name: '',
+      quantity: 0,
+      price: 0,
+    } as ProductData;
+
+    this.stallOwnerProductsData.push(data);
+  }
+
+  removeProduct(productId: number) {
+    const index = this.stallOwnerProductsData.findIndex(el => el.id === productId);
+    console.log(index);
+    if (index === -1) return;
+
+    this.stallOwnerProductsData.splice(index, 1);
+  }
+
+  updateProducts() {
+    const newProducts = JSON.stringify(this.stallOwnerProductsData);
+    console.log(newProducts);
+
+    const productData: UpdateProduct = {
+      id: this.stall!.id!,
+      products: newProducts
+    };
+
+    this.updateSub = this.stallService.updateProducts({
+      body: productData
+    }).subscribe({
+      next: (data) => {
+        console.log(data);
+        setTimeout(() => {
+          console.log('enter');
+          window.location.reload();
+        }, 2000);
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 }

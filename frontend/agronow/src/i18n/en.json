@@ -65,12 +65,17 @@
     "product": "Product",
     "product-name": "Product Name",
     "product-quantity": "Product Quantity",
+    "product-price-kg": "Product Price per KG",
     "remove-product": "Remove Product",
     "add-stall": "Create",
     "quantity-available": "Quantity Available",
     "enter-quantity": "Enter Quantity",
     "go-back": "Go Back",
-    "place-order": "Place Order"
+    "total": "Price",
+    "place-order": "Place Order",
+    "stall-owner-panel": "Stall Owner Panel",
+    "stall-owner-info": "From this panel, you will be able to add new products, modify the quantity or price of existing ones, or delete products!",
+    "update-products": "Update"
   },
   "requests": {
     "title": "Role Requests",

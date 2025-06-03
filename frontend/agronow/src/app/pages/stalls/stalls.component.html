@@ -91,6 +91,14 @@
                  class="form-control rounded-3"
                  placeholder="{{ 'stalls.product-quantity' | translate }}">
         </div>
+
+        <div class="mb-2">
+          <label class="form-label">{{ 'stalls.product-price-kg' | translate }}</label>
+          <input [(ngModel)]="product.price"
+                 type="number"
+                 class="form-control rounded-3"
+                 placeholder="{{ 'stalls.product-price-kg' | translate }}">
+        </div>
       </div>
     </div>
 

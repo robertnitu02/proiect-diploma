@@ -65,12 +65,17 @@
     "product": "Produs",
     "product-name": "Nume Produs",
     "product-quantity": "Cantitate Produs",
+    "product-price-kg": "Preț pe KG",
     "remove-product": "Șterge Produs",
     "add-stall": "Creează",
     "quantity-available": "Cantitate disponibilă",
     "enter-quantity": "Introdu cantitatea",
     "go-back": "Întoarce-te",
-    "place-order": "Plasează Comanda"
+    "total": "Total",
+    "place-order": "Plasează Comanda",
+    "stall-owner-panel": "Panou Proprietar Tarabă",
+    "stall-owner-info": "Din acest panou vei putea adăuga produse noi, modifica cantiatea sau prețul celor curente sau șterge produse!",
+    "update-products": "Update"
   },
   "requests": {
     "title": "Cereri Rol",

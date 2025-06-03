@@ -18,11 +18,42 @@ import { GetStall$Params } from '../fn/stall/get-stall';
 import { getStallsByMarketId } from '../fn/stall/get-stalls-by-market-id';
 import { GetStallsByMarketId$Params } from '../fn/stall/get-stalls-by-market-id';
 import { StallResponse } from '../models/stall-response';
+import { updateProducts } from '../fn/stall/update-products';
+import { UpdateProducts$Params } from '../fn/stall/update-products';
 
 @Injectable({ providedIn: 'root' })
 export class StallService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
+  }
+
+  /** Path part for operation `updateProducts()` */
+  static readonly UpdateProductsPath = '/stalls/update';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateProducts()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  updateProducts$Response(params: UpdateProducts$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+}>> {
+    return updateProducts(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `updateProducts$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  updateProducts(params: UpdateProducts$Params, context?: HttpContext): Observable<{
+}> {
+    return this.updateProducts$Response(params, context).pipe(
+      map((r: StrictHttpResponse<{
+}>): {
+} => r.body)
+    );
   }
 
   /** Path part for operation `addStall()` */

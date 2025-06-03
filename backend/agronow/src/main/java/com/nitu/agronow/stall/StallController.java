@@ -1,5 +1,6 @@
 package com.nitu.agronow.stall;
 
+import com.nitu.agronow.request.RequestStatusData;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +30,11 @@ public class StallController {
     @GetMapping("/stalls-by-market/{id}")
     public ResponseEntity<List<StallResponse>> getStallsByMarketId(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(stallService.getAllStallsByMarketId(id));
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateProducts(@RequestBody UpdateStallData updateStallData) {
+        stallService.setNewProducts(updateStallData);
+        return ResponseEntity.accepted().build();
     }
 }

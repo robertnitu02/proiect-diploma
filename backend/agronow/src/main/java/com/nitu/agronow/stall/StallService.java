@@ -62,6 +62,15 @@ public class StallService {
         return stalls;
     }
 
+    public void setNewProducts(UpdateStallData updateStallData) {
+        Stall stall = stallRepository
+                .findById(updateStallData.getId())
+                .orElseThrow(() -> new EntityNotFoundException("Stall not found"));
+
+        stall.setProducts(updateStallData.getProducts());
+        stallRepository.save(stall);
+    }
+
     public StallResponse getStallById(Integer id) {
         return stallRepository.findById(id)
                 .map(this::toStallResponse)

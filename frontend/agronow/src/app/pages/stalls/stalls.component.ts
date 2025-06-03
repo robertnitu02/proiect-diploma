@@ -127,7 +127,8 @@ export class StallsComponent implements OnInit, OnDestroy {
     const data = {
       id: this.productsData.length,
       name: '',
-      quantity: 0
+      quantity: 0,
+      price: 0,
     } as ProductData;
 
     this.productsData.push(data);
@@ -142,5 +143,9 @@ export class StallsComponent implements OnInit, OnDestroy {
 
   goToStall(stallId: number) {
     this.router.navigate(['stall', stallId]);
+  }
+
+  calculateTotal(): string {
+    return "10";
   }
 }
