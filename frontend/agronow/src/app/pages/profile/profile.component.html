@@ -53,8 +53,9 @@
             <th>#</th>
             <th>{{ 'orders.market' | translate }}</th>
             <th>{{ 'orders.stall' | translate }}</th>
-            <th>{{ 'orders.price' | translate }}</th>
             <th>{{ 'orders.address' | translate }}</th>
+            <th>{{ 'orders.products' | translate }}</th>
+            <th>{{ 'orders.price' | translate }}</th>
             <th>{{ 'orders.order-date' | translate }}</th>
             <th>{{ 'orders.delivery-date' | translate }}</th>
             <th>{{ 'orders.accepted-date' | translate }}</th>
@@ -66,8 +67,9 @@
             <td>{{ i + 1 }}</td>
             <td>{{ order.marketName }}</td>
             <td>{{ order.stallName }}</td>
-            <td>{{ order.price }} RON</td>
             <td>{{ order.address }}</td>
+            <td>{{ beautifyProducts(order.products!) }}</td>
+            <td>{{ order.price }} RON</td>
             <td>{{ order.orderDate | date: 'short' }}</td>
             <td>{{ (order.acceptedDate ) || '-' }}</td>
             <td>{{ (order.deliveryDate | date: 'short') || '-' }}</td>

@@ -126,6 +126,7 @@
     "stall": "Stall Name",
     "price": "Price",
     "address": "Address",
+    "products": "Products",
     "order-date": "Order Date",
     "accepted-date": "Accepted Date",
     "delivery-date": "Delivery Date",

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../services/services/order.service';
 import { OrderResponse } from '../../services/models/order-response';
 import { Router } from '@angular/router';
+import {ProductData} from '../stalls/product.data';
 
 @Component({
   selector: 'app-profile',
@@ -98,5 +99,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   goToStall() {
     this.router.navigate(['stall', this.stallId]);
+  }
+
+  beautifyProducts(products: string): string {
+    let final = '';
+    const dataParsed: ProductData[] = JSON.parse(products);
+    dataParsed.forEach((product: ProductData) => {
+      final += `${product.name} x ${product.quantity}; `;
+    });
+    return final;
   }
 }
