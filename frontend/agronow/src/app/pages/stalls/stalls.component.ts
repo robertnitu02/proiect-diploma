@@ -1,15 +1,16 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StallService } from '../../services/services/stall.service';
 import { StallResponse } from '../../services/models/stall-response';
 import { Subscription } from 'rxjs';
 import { MarketResponse } from '../../services/models/market-response';
 import { MarketService } from '../../services/services';
-import {NgForOf, NgIf} from '@angular/common';
-import {TranslatePipe} from '@ngx-translate/core';
-import {TokenService} from '../../services/token/token.service';
-import {Stall} from '../../services/models/stall';
-import {FormsModule} from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TokenService } from '../../services/token/token.service';
+import { Stall } from '../../services/models/stall';
+import { FormsModule } from '@angular/forms';
+import { ProductData } from './product.data';
 
 @Component({
   selector: 'app-stalls',
@@ -41,6 +42,7 @@ export class StallsComponent implements OnInit, OnDestroy {
     schedule: '',
     ownerId: 0
   };
+  productsData: ProductData[] = [];
   createStallSub: Subscription | undefined = undefined;
 
   constructor(
@@ -102,6 +104,7 @@ export class StallsComponent implements OnInit, OnDestroy {
     }
 
     this.stallData.marketPlacedId = this.marketId;
+    this.stallData.products = JSON.stringify(this.productsData);
 
     this.createStallSub = this.stallsService.addStall({
       body: this.stallData
@@ -117,5 +120,22 @@ export class StallsComponent implements OnInit, OnDestroy {
         console.log(error);
       }
     });
+  }
+
+  addProduct() {
+    const data = {
+      id: this.productsData.length,
+      name: '',
+      quantity: 0
+    } as ProductData;
+
+    this.productsData.push(data);
+  }
+
+  removeProduct(id: number) {
+    const index = this.productsData.findIndex(item => item.id === id);
+    if (index === -1) return;
+
+    this.productsData.splice(index, 1);
   }
 }

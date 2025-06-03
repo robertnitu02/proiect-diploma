@@ -57,13 +57,40 @@
              required>
     </div>
 
-    <div class="mb-3">
-      <label for="stallProducts" class="form-label">{{ 'stalls.products' | translate }}</label>
-      <input [(ngModel)]="stallData.products"
-             type="text"
-             class="form-control rounded-3"
-             id="stallProducts"
-             placeholder="{{ 'stalls.products-placeholder' | translate }}">
+    <div class="mb-4">
+      <label class="form-label d-block">{{ 'stalls.products' | translate }}</label>
+      <button (click)="addProduct()"
+              type="button"
+              class="btn btn-success px-4 py-2 mb-3 rounded-pill shadow-sm">
+        <i class="fas fa-plus me-2"></i> {{ 'stalls.add-product' | translate }}
+      </button>
+
+      <div *ngFor="let product of productsData" class="card mb-3 shadow-sm border-0 rounded-4 p-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">{{ 'stalls.product' | translate }} #{{ product.id }}</h5>
+          <button (click)="removeProduct(product.id)"
+                  type="button"
+                  class="btn btn-outline-danger btn-sm rounded-pill">
+            <i class="fas fa-trash-alt me-2"></i> {{ 'stalls.remove-product' | translate }}
+          </button>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">{{ 'stalls.product-name' | translate }}</label>
+          <input [(ngModel)]="product.name"
+                 type="text"
+                 class="form-control rounded-3"
+                 placeholder="{{ 'stalls.product-name' | translate }}">
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">{{ 'stalls.product-quantity' | translate }}</label>
+          <input [(ngModel)]="product.quantity"
+                 type="number"
+                 class="form-control rounded-3"
+                 placeholder="{{ 'stalls.product-quantity' | translate }}">
+        </div>
+      </div>
     </div>
 
     <div class="mb-3">

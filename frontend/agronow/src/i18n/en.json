@@ -59,9 +59,13 @@
     "description": "Description",
     "schedule": "Schedule",
     "products": "Products",
-    "products-placeholder": "Enter products x quantity",
     "image-url": "Stall Image",
     "owner-id": "Stall Owner ID",
+    "add-product": "Add Product",
+    "product": "Product",
+    "product-name": "Product Name",
+    "product-quantity": "Product Quantity",
+    "remove-product": "Remove Product",
     "add-stall": "Create"
   },
   "requests": {

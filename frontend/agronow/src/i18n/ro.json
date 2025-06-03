@@ -59,9 +59,13 @@
     "description": "Descriere",
     "schedule": "Program funcționare",
     "products": "Produse",
-    "products-placeholder": "produs x cantitate",
     "image-url": "Poză Tarabă",
     "owner-id": "ID Proprietar",
+    "add-product": "Adaugă Produs",
+    "product": "Produs",
+    "product-name": "Nume Produs",
+    "product-quantity": "Cantitate Produs",
+    "remove-product": "Șterge Produs",
     "add-stall": "Creează"
   },
   "requests": {
