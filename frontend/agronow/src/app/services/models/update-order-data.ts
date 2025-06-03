@@ -4,7 +4,5 @@
 
 export interface UpdateOrderData {
   id?: number;
-  shouldUpdateAcceptedDate?: boolean;
-  shouldUpdateDeliveryDate?: boolean;
   status?: number;
 }

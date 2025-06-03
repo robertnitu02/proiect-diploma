@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StallService } from '../../../services/services/stall.service';
 import { StallResponse } from '../../../services/models/stall-response';
 import { Subscription } from 'rxjs';
-import { NgForOf, NgIf } from '@angular/common';
+import {DatePipe, NgForOf, NgIf} from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TokenService} from '../../../services/token/token.service';
 import { ProductData } from '../product.data';
@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProduct } from './update-product.data';
 import { OrderService } from '../../../services/services/order.service';
 import { Order } from '../../../services/models/order';
+import {OrderResponse} from '../../../services/models/order-response';
+import {UpdateOrderData} from '../../../services/models/update-order-data';
 
 @Component({
   selector: 'app-stall',
@@ -19,7 +21,8 @@ import { Order } from '../../../services/models/order';
     TranslatePipe,
     NgForOf,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DatePipe
   ],
   templateUrl: './stall.component.html',
   styleUrl: './stall.component.css'
@@ -42,6 +45,11 @@ export class StallComponent implements OnInit, OnDestroy {
   orderSub: Subscription | undefined;
   address: string = '';
 
+  stallOrders: Order[] = [];
+  stallOrdersSub: Subscription | undefined;
+
+  orderUpdateSub: Subscription | undefined;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -57,6 +65,7 @@ export class StallComponent implements OnInit, OnDestroy {
     this.isStallOwner = this.tokenService.stall === this.stallId;
 
     this.getStall();
+    this.getOrdersFromStall();
   }
 
   ngOnDestroy(): void {
@@ -73,6 +82,16 @@ export class StallComponent implements OnInit, OnDestroy {
     if (this.orderSub !== undefined) {
       this.orderSub.unsubscribe();
       console.log('orderSub unsubscribed');
+    }
+
+    if (this.stallOrdersSub !== undefined) {
+      this.stallOrdersSub.unsubscribe();
+      console.log('stallOrdersSub unsubscribed');
+    }
+
+    if (this.orderUpdateSub !== undefined) {
+      this.orderUpdateSub.unsubscribe();
+      console.log('orderUpdateSub unsubscribed');
     }
   }
 
@@ -162,6 +181,35 @@ export class StallComponent implements OnInit, OnDestroy {
     this.router.navigate(['stalls', this.stall?.marketId]);
   }
 
+  beautifyProducts(products: string): string {
+    let final = '';
+    const dataParsed: ProductData[] = JSON.parse(products);
+    dataParsed.forEach((product: ProductData) => {
+      final += `${product.name} x ${product.quantity}; `;
+    });
+    return final;
+  }
+
+  onStatusChange(orderId: number, $event: any) {
+    const data: UpdateOrderData = {
+      id: orderId,
+      status: $event.valueOf()
+    };
+
+    this.orderUpdateSub = this.orderService.updateOrder({
+      body: data
+    }).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        // TODO: Implement messages
+        this.refreshPage();
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
   private getStall(): void {
     this.stallSub = this.stallService.getStall({
       id: this.stallId
@@ -183,6 +231,19 @@ export class StallComponent implements OnInit, OnDestroy {
 
           this.stallOwnerProductsData = structuredClone(this.productsData);
         }
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
+  private getOrdersFromStall(): void {
+    this.stallOrdersSub = this.orderService.getOrdersFromStallId({
+      id: this.stallId
+    }).subscribe({
+      next: (data: OrderResponse[]) => {
+        this.stallOrders = data;
       },
       error: err => {
         console.log(err);

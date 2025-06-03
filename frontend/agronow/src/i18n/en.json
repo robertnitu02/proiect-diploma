@@ -82,6 +82,8 @@
     "place-order": "Place Order",
     "stall-owner-panel": "Stall Owner Panel",
     "stall-owner-info": "From this panel, you will be able to add new products, modify the quantity or price of existing ones, or delete products!",
+    "stall-owner-panel-orders": "Orders Panel",
+    "stall-owner-orders-info": "From this panel, you will be able to change the status of orders from your stall.",
     "update-products": "Update",
     "enter-address": "Introdu adresa"
   },
@@ -131,6 +133,7 @@
     "accepted-date": "Accepted Date",
     "delivery-date": "Delivery Date",
     "status": "Status",
+    "user-name": "User",
     "status-type": {
       "0": "In Pending",
       "1": "In Delivery",

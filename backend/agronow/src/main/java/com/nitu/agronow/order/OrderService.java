@@ -91,9 +91,9 @@ public class OrderService {
                 .orElseThrow(() -> new EntityNotFoundException("Order not found"));
 
         order.setStatus(updateOrderData.getStatus());
-        if (updateOrderData.getShouldUpdateAcceptedDate())
+        if (updateOrderData.getStatus() == OrderStatus.IN_DELIVERY.ordinal())
             order.setAcceptedDate(LocalDateTime.now());
-        if (updateOrderData.getShouldUpdateDeliveryDate())
+        if (updateOrderData.getStatus() == OrderStatus.DELIVERED.ordinal())
             order.setDeliveryDate(LocalDateTime.now());
         orderRepository.save(order);
     }

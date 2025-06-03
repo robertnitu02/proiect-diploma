@@ -82,6 +82,8 @@
     "place-order": "Plasează Comanda",
     "stall-owner-panel": "Panou Proprietar Tarabă",
     "stall-owner-info": "Din acest panou vei putea adăuga produse noi, modifica cantiatea sau prețul celor curente sau șterge produse!",
+    "stall-owner-panel-orders": "Panou Comenzi",
+    "stall-owner-orders-info": "Din acest panou vei putea schimba status-ul comenzilor de la taraba ta.",
     "update-products": "Update",
     "enter-address": "Introdu adresa"
   },
@@ -131,6 +133,7 @@
     "accepted-date": "Dată acceptare comandă",
     "delivery-date": "Dată livrare",
     "status": "Status",
+    "user-name": "Utilizator",
     "status-type": {
       "0": "Comandă Plasată",
       "1": "În Curs de Livrare",

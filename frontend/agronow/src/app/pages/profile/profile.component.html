@@ -71,7 +71,7 @@
             <td>{{ beautifyProducts(order.products!) }}</td>
             <td>{{ order.price }} RON</td>
             <td>{{ order.orderDate | date: 'short' }}</td>
-            <td>{{ (order.acceptedDate ) || '-' }}</td>
+            <td>{{ (order.acceptedDate | date: 'short' ) || '-' }}</td>
             <td>{{ (order.deliveryDate | date: 'short') || '-' }}</td>
             <td>{{ ('orders.status-type.' + order.status) | translate }}</td>
           </tr>

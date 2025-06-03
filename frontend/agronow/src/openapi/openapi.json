@@ -655,12 +655,6 @@
           "status": {
             "type": "integer",
             "format": "int32"
-          },
-          "shouldUpdateAcceptedDate": {
-            "type": "boolean"
-          },
-          "shouldUpdateDeliveryDate": {
-            "type": "boolean"
           }
         }
       },

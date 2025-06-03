@@ -69,6 +69,64 @@
           <i class="fas fa-save me-2"></i> {{ 'stalls.update-products' | translate }}
         </button>
       </div>
+      <hr class="mb-4">
+    </div>
+
+    <h3 class="text-center mb-4">{{ 'stalls.stall-owner-panel-orders' | translate }}</h3>
+    <p class="mb-1 text-center text-muted">{{ 'stalls.stall-owner-orders-info' | translate }}</p>
+    <hr class="mb-4">
+
+    <div class="mb-3">
+      <div *ngIf="stallOrders && stallOrders.length > 0; else noOrders" class="card shadow-lg mx-auto rounded-4 p-4" style="max-width: 100%;">
+        <h4 class="mb-4 text-center fw-bold text-primary">
+          {{ 'orders.title' | translate }}
+        </h4>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle text-center">
+            <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>{{ 'orders.user-name' | translate }}</th>
+              <th>{{ 'orders.address' | translate }}</th>
+              <th>{{ 'orders.products' | translate }}</th>
+              <th>{{ 'orders.price' | translate }}</th>
+              <th>{{ 'orders.order-date' | translate }}</th>
+              <th>{{ 'orders.delivery-date' | translate }}</th>
+              <th>{{ 'orders.accepted-date' | translate }}</th>
+              <th>{{ 'orders.status' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of stallOrders; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ 'WIP USER' }}</td>
+              <td>{{ order.address }}</td>
+              <td>{{ beautifyProducts(order.products!) }}</td>
+              <td>{{ order.price }} RON</td>
+              <td>{{ order.orderDate | date: 'short' }}</td>
+              <td>{{ (order.acceptedDate| date: 'short') || '-' }}</td>
+              <td>{{ (order.deliveryDate | date: 'short') || '-' }}</td>
+              <td>
+                <select class="form-select form-select-sm"
+                        [ngModel]="order.status"
+                        (ngModelChange)="onStatusChange(order.id!, $event)">
+                  <option [ngValue]="0">{{ 'orders.status-type.0' | translate }}</option>
+                  <option [ngValue]="1">{{ 'orders.status-type.1' | translate }}</option>
+                  <option [ngValue]="2">{{ 'orders.status-type.2' | translate }}</option>
+                </select>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <ng-template #noOrders class="alert alert-warning text-center mt-4">
+        <div class="text-center mt-5">
+          {{ 'orders.no-orders' | translate }}
+        </div>
+      </ng-template>
     </div>
   </div>
 
