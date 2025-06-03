@@ -45,18 +45,8 @@ export class MarketsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.isAdmin = this.tokenService.admin === 1;
-    console.log(this.tokenService.admin + ' ' + this.isAdmin);
 
-    this.marketSub = this.marketsService.getAllMarkets()
-      .subscribe({
-        next: (data) => {
-          console.log('Markets: ' + data);
-          this.markets = data;
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      });
+    this.getMarketsData();
   }
 
   ngOnDestroy(): void {
@@ -72,13 +62,9 @@ export class MarketsComponent implements OnInit, OnDestroy {
       }
   }
 
-  goToMarket(marketId: number) {
-    this.router.navigate(['stalls', marketId]);
-  }
-
   createMarket() {
-    if (this.marketData.imageUrl === '' || this.marketData.imageUrl === '' ||
-        this.marketData.schedule === '') {
+    if (!this.isValidMarket()) {
+      // TODO: Implement messages
       return;
     }
 
@@ -86,15 +72,41 @@ export class MarketsComponent implements OnInit, OnDestroy {
       body: this.marketData
     }).subscribe({
       next: (data) => {
-        console.log('Markets: ' + data);
-        setTimeout(() => {
-          console.log('enter');
-          window.location.reload();
-        }, 2000);
+        // TODO: Implement messages
+        this.refreshPage();
       },
       error: (err) => {
         console.log(err);
       }
     });
+  }
+
+  goToMarket(marketId: number) {
+    this.router.navigate(['stalls', marketId]);
+  }
+
+  private getMarketsData() {
+    this.marketSub = this.marketsService.getAllMarkets()
+      .subscribe({
+        next: (data) => {
+          console.log('Markets: ' + data);
+          this.markets = data;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+  }
+
+  private isValidMarket(): boolean {
+    return this.marketData.imageUrl !== '' &&
+      this.marketData.imageUrl !== '' &&
+      this.marketData.schedule !== '';
+  }
+
+  private refreshPage(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

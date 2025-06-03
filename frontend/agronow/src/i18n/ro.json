@@ -47,7 +47,7 @@
     "view-stall": "Vezi Taraba"
   },
   "markets": {
-    "schedule": "Program funcționare: ",
+    "schedule": "Program funcționare",
     "to-stalls": "Vezi Tarabele",
     "create-market": "Piețe - Panou Admin",
     "name": "Nume Piață",
@@ -121,6 +121,7 @@
   },
   "orders": {
     "title": "Comenzile Tale",
+    "no-orders": "Nici o comandă înregistrată",
     "market": "Nume Piață",
     "stall": "Nume Tarabă",
     "price": "Preț",

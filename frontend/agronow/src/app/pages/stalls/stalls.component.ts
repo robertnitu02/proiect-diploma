@@ -55,34 +55,11 @@ export class StallsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.marketId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.marketId);
 
     this.isMarketOwner = this.tokenService.market === this.marketId;
-    console.log(this.marketId + ' vs ' + this.tokenService.market);
 
-    this.stallsSub = this.stallsService.getStallsByMarketId({
-      id: this.marketId
-    }).subscribe({
-      next: (data: StallResponse[]) => {
-        console.log('Stalls: ' + data);
-        this.stalls = data;
-      },
-      error: (error: Error) => {
-        console.log(error);
-      }
-    });
-
-    this.marketSub = this.marketService.getMarket({
-      id: this.marketId
-    }).subscribe({
-      next: (data: MarketResponse) => {
-        console.log('Market from Stalls: ' + data);
-        this.market = data;
-      },
-      error: (error: Error) => {
-        console.log(error);
-      }
-    });
+    this.getStalls();
+    this.getMarket();
   }
 
   ngOnDestroy(): void {
@@ -99,9 +76,8 @@ export class StallsComponent implements OnInit, OnDestroy {
 
   createStall() {
     this.stallData.products = JSON.stringify(this.productsData);
-    if (this.stallData.name === '' || this.stallData.description === '' ||
-        this.stallData.schedule === '' || this.stallData.products === '' ||
-        this.stallData.imageUrl === '' || this.stallData.ownerId === 0) {
+    if (!this.isStallValid()) {
+      // TODO: Implement messages
       return;
     }
 
@@ -111,11 +87,8 @@ export class StallsComponent implements OnInit, OnDestroy {
       body: this.stallData
     }).subscribe({
       next: (data) => {
-        console.log('Stalls: ' + data);
-        setTimeout(() => {
-          console.log('enter');
-          window.location.reload();
-        }, 2000);
+        // TODO: Implement messages
+        this.refreshPage();
       },
       error: (error: Error) => {
         console.log(error);
@@ -145,7 +118,45 @@ export class StallsComponent implements OnInit, OnDestroy {
     this.router.navigate(['stall', stallId]);
   }
 
-  calculateTotal(): string {
-    return "10";
+  goBack() {
+    this.router.navigate(['markets']);
+  }
+
+  private getStalls(): void {
+    this.stallsSub = this.stallsService.getStallsByMarketId({
+      id: this.marketId
+    }).subscribe({
+      next: (data: StallResponse[]) => {
+        this.stalls = data;
+      },
+      error: (error: Error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  private getMarket(): void {
+    this.marketSub = this.marketService.getMarket({
+      id: this.marketId
+    }).subscribe({
+      next: (data: MarketResponse) => {
+        this.market = data;
+      },
+      error: (error: Error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  private isStallValid(): boolean {
+    return this.stallData.name !== '' && this.stallData.description !== '' &&
+      this.stallData.schedule !== '' && this.stallData.products !== '' &&
+      this.stallData.imageUrl !== '' && this.stallData.ownerId !== 0;
+  }
+
+  private refreshPage(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

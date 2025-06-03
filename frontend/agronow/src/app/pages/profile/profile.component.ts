@@ -49,6 +49,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.marketId = this.tokenService.market;
     this.stallId = this.tokenService.stall;
     this.isAdmin = this.tokenService.admin === 1;
+
     this.getProfileData();
     this.getOrdersData();
   }
@@ -70,7 +71,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       id: this.userId
     }).subscribe({
       next: (data) => {
-        console.log(data);
         this.profileData = data;
       },
       error: (err) => {

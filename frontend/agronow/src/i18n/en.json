@@ -47,7 +47,7 @@
     "view-stall": "View Stall"
   },
   "markets": {
-    "schedule": "Schedule: ",
+    "schedule": "Schedule",
     "to-stalls": "To Stalls",
     "create-market": "Markets - Admin Panel",
     "name": "Market Name",
@@ -121,6 +121,7 @@
   },
   "orders": {
     "title": "Your Orders",
+    "no-orders": "No Orders",
     "market": "Market Namee",
     "stall": "Stall Name",
     "price": "Price",

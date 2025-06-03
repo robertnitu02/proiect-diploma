@@ -52,38 +52,11 @@ export class StallComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = this.tokenService.id;
-
     this.stallId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.stallId);
 
     this.isStallOwner = this.tokenService.stall === this.stallId;
-    console.log(this.stallId + ' vs ' + this.tokenService.stall);
 
-    this.stallSub = this.stallService.getStall({
-      id: this.stallId
-    }).subscribe({
-      next: (data: StallResponse) => {
-        console.log(data);
-        this.stall = data;
-
-        if (this.stall.products !== undefined) {
-          this.productsData = JSON.parse(this.stall.products);
-          this.productsData.forEach(el => {
-            this.orderData.push({
-              id: el.id,
-              name: el.name,
-              quantity: 0,
-              price: el.price
-            });
-          });
-
-          this.stallOwnerProductsData = structuredClone(this.productsData);
-        }
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+    this.getStall();
   }
 
   ngOnDestroy(): void {
@@ -103,35 +76,28 @@ export class StallComponent implements OnInit, OnDestroy {
     }
   }
 
-  goBack() {
-    this.router.navigate(['stalls', this.stall?.marketId]);
-  }
-
   submitOrder() {
     const finalOrderData = this.getFinalOrder();
-    if (finalOrderData.length === 0 || this.address === '')
+    if (!this.isOrderValid(finalOrderData)) {
+      // TODO: Implement messages
       return;
+    }
 
     const data: Order = {
       products: JSON.stringify(finalOrderData),
-      address: 'WIP',
+      address: this.address,
       price: +this.calculateTotal(),
       status: 0,
       requesterId: this.userId,
       stallId: this.stallId
     };
 
-    console.log(data);
-
     this.orderSub = this.orderService.addOrder({
       body: data
     }).subscribe({
       next: (data: any) => {
-        console.log(data);
-        setTimeout(() => {
-          console.log('enter');
-          window.location.reload();
-        }, 2000);
+        // TODO: Implement messages
+        this.refreshPage();
       },
       error: (err: any) => {
         console.log(err);
@@ -146,18 +112,6 @@ export class StallComponent implements OnInit, OnDestroy {
       price += (el.quantity * el.price);
     });
     return price.toString();
-  }
-
-  private getFinalOrder(): ProductData[] {
-    let finalOrderData: ProductData[] = [];
-    this.orderData.forEach(el => {
-      if (el.quantity > 0 &&
-        el.quantity <= this.productsData[el.id].quantity) {
-        finalOrderData.push(el);
-      }
-    });
-
-    return finalOrderData;
   }
 
   addProduct() {
@@ -202,5 +156,59 @@ export class StallComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     });
+  }
+
+  goBack() {
+    this.router.navigate(['stalls', this.stall?.marketId]);
+  }
+
+  private getStall(): void {
+    this.stallSub = this.stallService.getStall({
+      id: this.stallId
+    }).subscribe({
+      next: (data: StallResponse) => {
+        console.log(data);
+        this.stall = data;
+
+        if (this.stall.products !== undefined) {
+          this.productsData = JSON.parse(this.stall.products);
+          this.productsData.forEach(el => {
+            this.orderData.push({
+              id: el.id,
+              name: el.name,
+              quantity: 0,
+              price: el.price
+            });
+          });
+
+          this.stallOwnerProductsData = structuredClone(this.productsData);
+        }
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
+  private isOrderValid(finalOrderData: ProductData[]): boolean {
+    return finalOrderData.length !== 0 && this.address !== '';
+  }
+
+  private getFinalOrder(): ProductData[] {
+    let finalOrderData: ProductData[] = [];
+    this.orderData.forEach(el => {
+      if (el.quantity > 0 &&
+        el.quantity <= this.productsData[el.id].quantity) {
+        finalOrderData.push(el);
+      }
+    });
+
+    return finalOrderData;
+  }
+
+  private refreshPage(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

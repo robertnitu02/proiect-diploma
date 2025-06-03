@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {AuthenticationService} from '../../services/services/authentication.service';
+import { AuthenticationService } from '../../services/services/authentication.service';
 import { Router } from '@angular/router';
-import {NgIf} from '@angular/common';
-import {CodeInputModule} from 'angular-code-input';
-import {TranslatePipe} from '@ngx-translate/core';
+import { NgIf} from '@angular/common';
+import { CodeInputModule } from 'angular-code-input';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-activate-account',

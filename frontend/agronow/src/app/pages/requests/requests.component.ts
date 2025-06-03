@@ -1,14 +1,13 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DatePipe, NgForOf, NgIf} from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Request } from '../../services/models/request';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 import { RequestService } from '../../services/services/request.service';
 import { RequestResponse } from '../../services/models/request-response';
 import { TokenService } from '../../services/token/token.service';
-import {RequestStatusData} from '../../services/models/request-status-data';
+import { RequestStatusData } from '../../services/models/request-status-data';
 
 @Component({
   selector: 'app-requests',
@@ -43,50 +42,19 @@ export class RequestsComponent implements OnInit, OnDestroy {
   sendUpdateSub: Subscription | undefined;
 
   constructor(
-    private router: Router,
     private requestService: RequestService,
     public tokenService: TokenService) {
   }
 
   ngOnInit(): void {
     this.userId = this.tokenService.id;
+    this.isAdmin = this.tokenService.admin === 1;
+
     this.requestData.requesterId = this.userId;
 
-    this.isAdmin = this.tokenService.admin === 1;
-    console.log(this.tokenService.admin + ' ' + this.isAdmin);
-
-     this.userRequestSub = this.requestService.getRequestsByUserId({
-       id: this.userId
-     }).subscribe({
-       next: (res: RequestResponse[]) => {
-         console.log(res);
-         this.hasRequests = res.length > 0;
-         this.userRequests = res;
-       },
-       error: err => {
-         console.log(err);
-       }
-     });
-
-    this.usersRequestsSub = this.requestService.getAllRequests()
-      .subscribe({
-        next: (res: RequestResponse[]) => {
-          this.usersRequests = res;
-          this.requestUpdateData = [];
-          this.usersRequests.forEach((el) => {
-            this.requestUpdateData[el.id!] = {
-              id: el.id,
-              status: 'PENDING',
-              reason: ''
-            };
-          });
-        },
-        error: err => {
-          console.log(err);
-        }
-      });
+    this.getUserRequests();
+    this.getAdminRequests();
   }
-
 
   ngOnDestroy(): void {
     if (this.sendRequestSub !== undefined) {
@@ -112,9 +80,7 @@ export class RequestsComponent implements OnInit, OnDestroy {
 
   sendRequest() {
     this.errorMessages = [];
-    if (this.requestData.message === '' ||
-        this.requestData.links === '' ||
-        this.requestData.imageUrl === '') {
+    if (!this.isRequestValid()) {
       this.errorMessages.push('Complete form');
       return;
     }
@@ -123,28 +89,18 @@ export class RequestsComponent implements OnInit, OnDestroy {
       body: this.requestData
     }).subscribe({
       next: (res: Request) => {
-        console.log(res);
-        setTimeout(() => {
-          // this.router.navigate(['/requests']);
-          console.log('enter');
-          window.location.reload();
-        }, 2000);
+        // TODO: Implement messages
+        this.refreshPage();
       },
       error: err => {
-        console.log(JSON.stringify(err));
         this.errorMessages.push(err.message);
       }
     });
   }
 
   submitRequestAnswer(requestId: number) {
-    if (this.requestUpdateData[requestId] === undefined) {
-      console.log('no anwser')
-      return;
-    }
-
-    if (this.requestUpdateData[requestId].reason === '' || this.requestUpdateData[requestId].status === 'PENDING') {
-      console.log('no anwser2')
+    if (!this.isSubmitValid(requestId)) {
+      // TODO: Implement messages
       return;
     }
 
@@ -152,15 +108,65 @@ export class RequestsComponent implements OnInit, OnDestroy {
       body: this.requestUpdateData[requestId]
     }).subscribe({
       next: (res: Request) => {
-        console.log(res);
-        setTimeout(() => {
-          console.log('enter');
-          window.location.reload();
-        }, 2000);
+        // TODO: Implement messages
+        this.refreshPage();
       },
       error: err => {
         console.log(JSON.stringify(err));
       }
     });
+  }
+
+  private getUserRequests(): void {
+    this.userRequestSub = this.requestService.getRequestsByUserId({
+      id: this.userId
+    }).subscribe({
+      next: (res: RequestResponse[]) => {
+        console.log(res);
+        this.hasRequests = res.length > 0;
+        this.userRequests = res;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
+  private getAdminRequests(): void {
+    this.usersRequestsSub = this.requestService.getAllRequests()
+      .subscribe({
+        next: (res: RequestResponse[]) => {
+          this.usersRequests = res;
+          this.requestUpdateData = [];
+          this.usersRequests.forEach((el) => {
+            this.requestUpdateData[el.id!] = {
+              id: el.id,
+              status: 'PENDING',
+              reason: ''
+            };
+          });
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+  }
+
+  private isRequestValid(): boolean {
+    return this.requestData.message !== '' &&
+      this.requestData.links !== '' &&
+      this.requestData.imageUrl !== '';
+  }
+
+  private isSubmitValid(requestId: number): boolean {
+    return this.requestUpdateData[requestId] !== undefined &&
+      this.requestUpdateData[requestId].reason !== '' &&
+      this.requestUpdateData[requestId].status !== 'PENDING'
+  }
+
+  private refreshPage(): void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

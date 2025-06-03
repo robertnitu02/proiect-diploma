@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from '../../services/token/token.service';
 import { NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 enum pages {
   LOGIN,
@@ -50,9 +50,10 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.loginSub === undefined) return;
-
-    this.loginSub.unsubscribe();
+    if (this.loginSub !== undefined) {
+      this.loginSub.unsubscribe();
+      console.log('loginSub unsubscribed');
+    }
   }
 
   goToPage(page: pages) {

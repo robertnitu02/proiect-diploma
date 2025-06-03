@@ -5,7 +5,7 @@ import { RegistrationRequest } from '../../services/models/registration-request'
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services/authentication.service';
 import { TokenService } from '../../services/token/token.service';
-import {TranslatePipe} from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +37,6 @@ export class RegisterComponent {
       body: this.registerRequest
     }).subscribe({
       next: (res: RegistrationRequest) => {
-        console.log(res);
         this.router.navigate(['activate-account']);
       },
       error: err => {

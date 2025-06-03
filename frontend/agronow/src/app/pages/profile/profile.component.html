@@ -22,15 +22,15 @@
               {{ (profileData.enabled ? 'profile.activated-yes' : 'profile.activated-no') | translate }}
             </span>
           </li>
-          <li *ngIf="isAdmin" class="list-group-item"><strong>{{ 'profile.is-admin' | translate }}:</strong> Yes</li>
-          <li *ngIf="marketId !== -1" class="list-group-item">
+          <li *ngIf="isAdmin" class="list-group-item"><strong>{{ 'profile.is-admin' | translate }}:</strong> 1</li>
+          <li *ngIf="marketId !== 0" class="list-group-item">
             <strong>{{ 'profile.is-market-owner' | translate }}:</strong>
             <button (click)="goToMarket()"
                     class="btn btn-outline-success btn-sm rounded-pill ms-2">
               {{ 'profile.view-market' | translate }}
             </button>
           </li>
-          <li *ngIf="stallId !== -1" class="list-group-item">
+          <li *ngIf="stallId !== 0" class="list-group-item">
             <strong>{{ 'profile.is-stall-owner' | translate }}:</strong>
             <button class="btn btn-outline-success btn-sm rounded-pill ms-2"
                     (click)="goToStall()">
@@ -79,7 +79,9 @@
     </div>
 
     <ng-template #noOrders class="alert alert-warning text-center mt-4">
-      {{ 'orders.no-orders' | translate }}
+      <div class="text-center mt-5">
+        {{ 'orders.no-orders' | translate }}
+      </div>
     </ng-template>
   </div>
 

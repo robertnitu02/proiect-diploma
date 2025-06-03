@@ -1,4 +1,10 @@
 <div *ngIf="market && stalls" class="container py-4">
+  <div class="mb-4">
+    <button class="btn btn-outline-secondary rounded-pill shadow-sm"
+            (click)="goBack()">
+      <i class="fas fa-arrow-left me-2"></i> {{ 'stalls.go-back' | translate }}
+    </button>
+  </div>
   <div class="card mb-4 text-center">
     <div class="card-body">
       <h4 class="card-title">{{ market.name }}</h4>

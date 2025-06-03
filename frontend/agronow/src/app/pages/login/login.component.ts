@@ -33,6 +33,7 @@ export class LoginComponent {
 
   login() {
     this.errorMessages = [];
+
     this.authService.authenticate({
       body: this.authRequest
     }).subscribe({
@@ -46,7 +47,7 @@ export class LoginComponent {
           this.tokenService.market = +res.marketId;
         if (res.stallId !== undefined)
           this.tokenService.stall = +res.stallId;
-        console.log(res);
+
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 1000);

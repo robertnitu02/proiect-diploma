@@ -110,14 +110,18 @@ public class AuthenticationService {
         claims.put("fullName", user.getFullName());
 
         var jwtToken = jwtService.generateToken(claims, user);
-        return AuthenticationResponse
+        var response = AuthenticationResponse
                 .builder()
                 .token(jwtToken)
                 .id(user.getId())
-                .admin(user.getAdmin())
-                .marketId(user.getMarket().getId())
-                .stallId(user.getStall().getId())
-                .build();
+                .admin(user.getAdmin());
+
+        if (user.getMarket() != null)
+            response.marketId(user.getMarket().getId());
+        if (user.getStall() != null)
+            response.stallId(user.getStall().getId());
+
+        return response.build();
     }
 
     public void activateAccount(String token) throws MessagingException {
