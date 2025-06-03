@@ -66,7 +66,11 @@
     "product-name": "Nume Produs",
     "product-quantity": "Cantitate Produs",
     "remove-product": "Șterge Produs",
-    "add-stall": "Creează"
+    "add-stall": "Creează",
+    "quantity-available": "Cantitate disponibilă",
+    "enter-quantity": "Introdu cantitatea",
+    "go-back": "Întoarce-te",
+    "place-order": "Plasează Comanda"
   },
   "requests": {
     "title": "Cereri Rol",

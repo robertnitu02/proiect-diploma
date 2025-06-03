@@ -8,6 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MarketsComponent } from './pages/markets/markets.component';
 import { StallsComponent } from './pages/stalls/stalls.component';
 import { RequestsComponent } from './pages/requests/requests.component';
+import { StallComponent } from './pages/stalls/stall/stall.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path: 'stalls/:id',
     component: StallsComponent,
+  },
+  {
+    path: 'stall/:id',
+    component: StallComponent,
   },
   {
     path: 'requests',

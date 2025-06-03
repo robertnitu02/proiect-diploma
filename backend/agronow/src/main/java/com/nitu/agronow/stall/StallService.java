@@ -75,6 +75,7 @@ public class StallService {
                 .description(stall.getDescription())
                 .schedule(stall.getSchedule())
                 .imageUrl(stall.getImageUrl())
+                .products(stall.getProducts())
                 .ownerFullName(stall.getUser().getFullName())
                 .ownerId(stall.getUser().getId())
                 .marketName(stall.getMarket().getName())

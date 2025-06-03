@@ -15,7 +15,8 @@
           <h5 class="card-title">{{ stall.name }}</h5>
           <h5 class="card-subtitle">{{ stall.schedule }}</h5>
           <p class="card-text flex-grow-1">{{ stall.description }}</p>
-          <a class="btn btn-primary mt-auto">
+          <a class="btn btn-primary mt-auto"
+             (click)="goToStall(stall.id!)">
             {{ 'stalls.order' | translate }}
           </a>
         </div>
@@ -57,7 +58,7 @@
              required>
     </div>
 
-    <div class="mb-4">
+    <div class="mb-3">
       <label class="form-label d-block">{{ 'stalls.products' | translate }}</label>
       <button (click)="addProduct()"
               type="button"

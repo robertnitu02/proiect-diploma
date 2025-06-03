@@ -597,19 +597,19 @@
           "fullName": {
             "type": "string"
           },
-          "username": {
-            "type": "string"
-          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "accountNonExpired": {
-            "type": "boolean"
+          "username": {
+            "type": "string"
           },
           "credentialsNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {
@@ -765,6 +765,9 @@
             "type": "string"
           },
           "imageUrl": {
+            "type": "string"
+          },
+          "products": {
             "type": "string"
           },
           "ownerFullName": {

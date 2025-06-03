@@ -14,6 +14,7 @@ public class StallResponse {
     private String description;
     private String schedule;
     private String imageUrl;
+    private String products;
 
     private String ownerFullName;
     private Integer ownerId;

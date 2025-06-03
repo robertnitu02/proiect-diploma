@@ -1,7 +1,5 @@
 package com.nitu.agronow.stall;
 
-import com.nitu.agronow.market.Market;
-import com.nitu.agronow.market.MarketResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

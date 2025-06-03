@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { MarketService } from '../../services/services/market.service';
 import { Market, MarketResponse } from '../../services/models';
 import { Subscription } from 'rxjs';
-import {NgForOf, NgIf} from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import {FormsModule} from '@angular/forms';
-import {TokenService} from '../../services/token/token.service';
+import { FormsModule } from '@angular/forms';
+import { TokenService } from '../../services/token/token.service';
 
 @Component({
   selector: 'app-markets',

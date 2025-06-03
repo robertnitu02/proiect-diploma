@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StallService } from '../../services/services/stall.service';
 import { StallResponse } from '../../services/models/stall-response';
 import { Subscription } from 'rxjs';
@@ -47,6 +47,7 @@ export class StallsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private stallsService: StallService,
     private marketService: MarketService,
     private tokenService: TokenService
@@ -97,6 +98,7 @@ export class StallsComponent implements OnInit, OnDestroy {
   }
 
   createStall() {
+    this.stallData.products = JSON.stringify(this.productsData);
     if (this.stallData.name === '' || this.stallData.description === '' ||
         this.stallData.schedule === '' || this.stallData.products === '' ||
         this.stallData.imageUrl === '' || this.stallData.ownerId === 0) {
@@ -104,7 +106,6 @@ export class StallsComponent implements OnInit, OnDestroy {
     }
 
     this.stallData.marketPlacedId = this.marketId;
-    this.stallData.products = JSON.stringify(this.productsData);
 
     this.createStallSub = this.stallsService.addStall({
       body: this.stallData
@@ -137,5 +138,9 @@ export class StallsComponent implements OnInit, OnDestroy {
     if (index === -1) return;
 
     this.productsData.splice(index, 1);
+  }
+
+  goToStall(stallId: number) {
+    this.router.navigate(['stall', stallId]);
   }
 }

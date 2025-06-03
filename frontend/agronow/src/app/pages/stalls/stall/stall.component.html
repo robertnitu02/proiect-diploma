@@ -1,0 +1,62 @@
+<div *ngIf="stall" class="container py-4">
+  <div class="mb-4">
+    <button class="btn btn-outline-secondary rounded-pill shadow-sm"
+            (click)="goBack()">
+      <i class="fas fa-arrow-left me-2"></i> {{ 'stalls.go-back' | translate }}
+    </button>
+  </div>
+
+  <div class="card mb-4 text-center">
+    <div class="card-body">
+      <h4 class="card-title">{{ stall.marketName }} - {{ stall.name }}</h4>
+      <p class="card-text text-muted">{{ stall.description }}</p>
+    </div>
+  </div>
+
+  <div class="card mb-4 shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 800px;">
+    <img [src]="stall.imageUrl"
+         class="card-img-top object-fit-cover"
+         [alt]="stall.name"
+         style="height: 250px; object-fit: cover;">
+
+    <div class="card-body">
+      <h4 class="card-title fw-bold mb-2">
+        {{ stall.schedule }} <span class="text-muted fs-6"></span>
+      </h4>
+
+      <p class="card-text mb-3">
+        {{ stall.description }}
+      </p>
+
+      <div class="mb-4">
+        <label class="form-label fs-5 fw-semibold d-block mb-3">
+          {{ 'stalls.products' | translate }}
+        </label>
+
+        <div *ngFor="let product of productsData" class="card mb-3 shadow-sm border-0 rounded-4 p-3">
+          <div class="mb-2">
+            <h5 class="mb-1">{{ product.name }}</h5>
+            <p class="text-muted mb-0">{{ 'stalls.quantity-available' | translate }}: {{ product.quantity }}</p>
+          </div>
+
+          <div class="mt-3">
+            <label class="form-label">{{ 'stalls.enter-quantity' | translate }}</label>
+            <input [(ngModel)]="orderData[product.id].quantity"
+                   type="number"
+                   min="1"
+                   [max]="product.quantity"
+                   class="form-control rounded-3">
+          </div>
+        </div>
+
+        <div class="text-end mt-4">
+          <button class="btn btn-primary px-4 py-2 rounded-pill shadow-sm"
+                  (click)="submitOrder()">
+            <i class="fas fa-shopping-cart me-2"></i> {{ 'stalls.place-order' | translate }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -11,5 +11,6 @@ export interface StallResponse {
   name?: string;
   ownerFullName?: string;
   ownerId?: number;
+  products?: string;
   schedule?: string;
 }

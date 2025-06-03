@@ -66,7 +66,11 @@
     "product-name": "Product Name",
     "product-quantity": "Product Quantity",
     "remove-product": "Remove Product",
-    "add-stall": "Create"
+    "add-stall": "Create",
+    "quantity-available": "Quantity Available",
+    "enter-quantity": "Enter Quantity",
+    "go-back": "Go Back",
+    "place-order": "Place Order"
   },
   "requests": {
     "title": "Role Requests",
