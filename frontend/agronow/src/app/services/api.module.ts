@@ -8,6 +8,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { StallService } from './services/stall.service';
 import { RequestService } from './services/request.service';
+import { OrderService } from './services/order.service';
 import { MarketService } from './services/market.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
@@ -22,6 +23,7 @@ import { UserService } from './services/user.service';
   providers: [
     StallService,
     RequestService,
+    OrderService,
     MarketService,
     AuthenticationService,
     UserService,

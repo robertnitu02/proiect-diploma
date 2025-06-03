@@ -42,6 +42,7 @@ public class SecurityConfig {
                                         "/stalls/*",
                                         "/stalls/stalls-by-market/*",
                                         "/requests/**",
+                                        "/orders/**",
                                         "/configuration/security",
                                         "/swagger-ui/**",
                                         "/webjars/**",

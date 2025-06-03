@@ -4,6 +4,7 @@
 
 export { StallService } from './services/stall.service';
 export { RequestService } from './services/request.service';
+export { OrderService } from './services/order.service';
 export { MarketService } from './services/market.service';
 export { AuthenticationService } from './services/authentication.service';
 export { UserService } from './services/user.service';

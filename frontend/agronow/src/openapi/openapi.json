@@ -71,6 +71,36 @@
         }
       }
     },
+    "/orders/update": {
+      "put": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "updateOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrderData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/stalls/add": {
       "post": {
         "tags": [
@@ -112,6 +142,36 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/add": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "addRequest_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
               }
             }
           },
@@ -405,6 +465,74 @@
         }
       }
     },
+    "/orders/user/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getOrdersFromUserId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/stall/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getOrdersFromStallId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/markets/{id}": {
       "get": {
         "tags": [
@@ -514,6 +642,25 @@
               "ACCEPTED",
               "REJECTED"
             ]
+          }
+        }
+      },
+      "UpdateOrderData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shouldUpdateAcceptedDate": {
+            "type": "boolean"
+          },
+          "shouldUpdateDeliveryDate": {
+            "type": "boolean"
           }
         }
       },
@@ -703,6 +850,55 @@
           }
         }
       },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "acceptedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deliveryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "requesterId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stallId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stall": {
+            "$ref": "#/components/schemas/Stall"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      },
       "RegistrationRequest": {
         "type": "object",
         "properties": {
@@ -875,6 +1071,55 @@
           },
           "userImageUrl": {
             "type": "string"
+          }
+        }
+      },
+      "OrderResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "acceptedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deliveryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "marketName": {
+            "type": "string"
+          },
+          "marketId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stallName": {
+            "type": "string"
+          },
+          "stallId": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
