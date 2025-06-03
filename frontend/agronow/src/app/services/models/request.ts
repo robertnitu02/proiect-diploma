@@ -4,7 +4,7 @@
 
 import { User } from '../models/user';
 export interface Request {
-  acceptedAt?: string;
+  answeredAt?: string;
   createdAt?: string;
   id?: number;
   imageUrl?: string;

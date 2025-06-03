@@ -597,19 +597,19 @@
           "fullName": {
             "type": "string"
           },
+          "username": {
+            "type": "string"
+          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "username": {
-            "type": "string"
-          },
-          "credentialsNonExpired": {
+          "accountNonExpired": {
             "type": "boolean"
           },
-          "accountNonExpired": {
+          "credentialsNonExpired": {
             "type": "boolean"
           },
           "accountNonLocked": {
@@ -644,7 +644,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "acceptedAt": {
+          "answeredAt": {
             "type": "string",
             "format": "date-time"
           },
@@ -817,7 +817,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "acceptedAt": {
+          "answeredAt": {
             "type": "string",
             "format": "date-time"
           },

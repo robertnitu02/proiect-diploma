@@ -83,7 +83,7 @@
     "send": "Send",
     "your-request": "Your Requests",
     "createdAt": "Created At",
-    "acceptedAt": "Answered At",
+    "answeredAt": "Answered At",
     "types": {
       "0": "Administrator",
       "1": "Market",

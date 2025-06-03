@@ -28,7 +28,7 @@ public class Request {
     private String reason;
 
     private LocalDateTime createdAt;
-    private LocalDateTime acceptedAt;
+    private LocalDateTime answeredAt;
 
     @Transient
     private Integer requesterId;

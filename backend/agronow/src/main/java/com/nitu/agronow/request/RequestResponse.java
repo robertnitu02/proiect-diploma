@@ -20,7 +20,7 @@ public class RequestResponse {
     private String reason;
 
     private LocalDateTime createdAt;
-    private LocalDateTime acceptedAt;
+    private LocalDateTime answeredAt;
 
     private Integer userId;
     private String userFullName;

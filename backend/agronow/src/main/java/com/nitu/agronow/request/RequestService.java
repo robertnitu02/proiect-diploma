@@ -45,7 +45,7 @@ public class RequestService {
         requestToAdd.setImageUrl(request.getImageUrl());
         requestToAdd.setReason("");
         requestToAdd.setCreatedAt(LocalDateTime.now());
-        requestToAdd.setAcceptedAt(null);
+        requestToAdd.setAnsweredAt(null);
         requestToAdd.setUser(user);
 
         requestRepository.save(requestToAdd);
@@ -88,16 +88,12 @@ public class RequestService {
 
         request.setStatus(requestStatusData.getStatus().ordinal());
         request.setReason(requestStatusData.getReason());
-        request.setAcceptedAt(LocalDateTime.now());
+        request.setAnsweredAt(LocalDateTime.now());
         requestRepository.save(request);
 
         User user = request.getUser();
         if (request.getType() == RequestTypes.ADMINISTRATOR.ordinal())
             user.setAdmin(1);
-//        else if (request.getType() == RequestTypes.MARKET.ordinal())
-//            user.setMarket(1);
-//        else if (request.getType() == RequestTypes.STALL.ordinal())
-//            user.setStall(1);
         userRepository.save(user);
     }
 
@@ -113,7 +109,7 @@ public class RequestService {
                 .imageUrl(request.getImageUrl())
                 .reason(request.getReason())
                 .createdAt(request.getCreatedAt())
-                .acceptedAt(request.getAcceptedAt())
+                .answeredAt(request.getAnsweredAt())
                 .userId(user.getId())
                 .userFullName(user.getFullName())
                 .userEmail(user.getEmail())

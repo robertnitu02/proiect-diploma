@@ -83,7 +83,7 @@
     "send": "Trimite",
     "your-request": "Cererile Tale",
     "createdAt": "Creat La",
-    "acceptedAt": "Răspuns La",
+    "answeredAt": "Răspuns La",
     "types": {
       "0": "Administrator",
       "1": "Proprietar Piață",

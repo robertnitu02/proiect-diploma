@@ -38,7 +38,7 @@
 
               <div class="text-muted small">
                 <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
-                <div *ngIf="request.acceptedAt"><strong>{{ 'requests.acceptedAt' | translate }}:</strong> {{ request.acceptedAt | date:'short' }}</div>
+                <div *ngIf="request.answeredAt"><strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}</div>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@
 
               <div class="text-muted small mb-3">
                 <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
-                <div *ngIf="request.acceptedAt"><strong>{{ 'requests.acceptedAt' | translate }}:</strong> {{ request.acceptedAt | date:'short' }}</div>
+                <div *ngIf="request.answeredAt"><strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}</div>
               </div>
 
               <div *ngIf="request.status === 0" class="border-top pt-3 mt-3">
