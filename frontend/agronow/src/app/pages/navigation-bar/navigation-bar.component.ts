@@ -20,7 +20,7 @@ enum pages {
     TranslatePipe
   ],
   templateUrl: './navigation-bar.component.html',
-  styleUrl: './navigation-bar.component.scss'
+  styleUrl: './navigation-bar.component.css'
 })
 export class NavigationBarComponent implements OnInit, OnDestroy {
 

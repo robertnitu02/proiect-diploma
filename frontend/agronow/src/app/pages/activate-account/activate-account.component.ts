@@ -13,7 +13,7 @@ import {TranslatePipe} from '@ngx-translate/core';
     TranslatePipe
   ],
   templateUrl: './activate-account.component.html',
-  styleUrl: './activate-account.component.scss'
+  styleUrl: './activate-account.component.css'
 })
 export class ActivateAccountComponent {
 

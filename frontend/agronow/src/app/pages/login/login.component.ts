@@ -17,7 +17,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     TranslatePipe
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
