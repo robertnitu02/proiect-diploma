@@ -60,6 +60,7 @@
   },
   "stalls": {
     "order": "Comandă",
+    "products-title": "Produse",
     "no-stalls": "Nu sunt tarabe disponibile ...",
     "create-stall": "Creează Tarabă",
     "name": "Nume Tarabă",
@@ -81,9 +82,8 @@
     "total": "Total",
     "place-order": "Plasează Comanda",
     "stall-owner-panel": "Panou Proprietar Tarabă",
-    "stall-owner-info": "Din acest panou vei putea adăuga produse noi, modifica cantiatea sau prețul celor curente sau șterge produse!",
-    "stall-owner-panel-orders": "Panou Comenzi",
-    "stall-owner-orders-info": "Din acest panou vei putea schimba status-ul comenzilor de la taraba ta.",
+    "stall-owner-info": "Din acest panou vei putea monitoriza comenzile din cadrul tarabei, dar vei putea adauga / șterge produsele, cât și modifica prețul și cantitatea acestora.",
+    "stall-owner-panel-orders": "Comenzi",
     "update-products": "Update",
     "enter-address": "Introdu adresa"
   },
@@ -123,6 +123,7 @@
   },
   "orders": {
     "title": "Comenzile Tale",
+    "stall-title": "Comenzi Tarabă",
     "no-orders": "Nici o comandă înregistrată",
     "market": "Nume Piață",
     "stall": "Nume Tarabă",
@@ -133,7 +134,7 @@
     "accepted-date": "Dată acceptare comandă",
     "delivery-date": "Dată livrare",
     "status": "Status",
-    "user-name": "Utilizator",
+    "user-name": "Persoană",
     "status-type": {
       "0": "Comandă Plasată",
       "1": "În Curs de Livrare",

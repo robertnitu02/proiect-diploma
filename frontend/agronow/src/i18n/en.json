@@ -60,6 +60,7 @@
   },
   "stalls": {
     "order": "Order",
+    "products-title": "Products",
     "no-stalls": "No Stalls right now ...",
     "create-stall": "Create Stall",
     "name": "Stall Name",
@@ -81,9 +82,8 @@
     "total": "Price",
     "place-order": "Place Order",
     "stall-owner-panel": "Stall Owner Panel",
-    "stall-owner-info": "From this panel, you will be able to add new products, modify the quantity or price of existing ones, or delete products!",
-    "stall-owner-panel-orders": "Orders Panel",
-    "stall-owner-orders-info": "From this panel, you will be able to change the status of orders from your stall.",
+    "stall-owner-info": "From this panel, you will be able to monitor the orders associated with your stall, as well as add or remove products, and modify their price and quantity.",
+    "stall-owner-panel-orders": "Orders",
     "update-products": "Update",
     "enter-address": "Introdu adresa"
   },
@@ -123,6 +123,7 @@
   },
   "orders": {
     "title": "Your Orders",
+    "stall-title": "Stall Orders",
     "no-orders": "No Orders",
     "market": "Market Namee",
     "stall": "Stall Name",
