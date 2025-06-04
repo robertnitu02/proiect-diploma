@@ -1101,6 +1101,9 @@
             "type": "string",
             "format": "date-time"
           },
+          "fullUserName": {
+            "type": "string"
+          },
           "marketName": {
             "type": "string"
           },

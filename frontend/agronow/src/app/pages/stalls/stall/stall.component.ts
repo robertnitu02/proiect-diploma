@@ -45,7 +45,7 @@ export class StallComponent implements OnInit, OnDestroy {
   orderSub: Subscription | undefined;
   address: string = '';
 
-  stallOrders: Order[] = [];
+  stallOrders: OrderResponse[] = [];
   stallOrdersSub: Subscription | undefined;
 
   orderUpdateSub: Subscription | undefined;

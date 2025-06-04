@@ -21,6 +21,8 @@ public class OrderResponse {
     private LocalDateTime acceptedDate;
     private LocalDateTime deliveryDate;
 
+    private String fullUserName;
+
     private String marketName;
     private Integer marketId;
 

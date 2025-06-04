@@ -108,6 +108,7 @@ public class OrderService {
                 .orderDate(order.getOrderDate())
                 .acceptedDate(order.getAcceptedDate())
                 .deliveryDate(order.getDeliveryDate())
+                .fullUserName(order.getUser().getFullName())
                 .marketName(order.getStall().getMarket().getName())
                 .marketId(order.getStall().getMarket().getId())
                 .stallName(order.getStall().getName())

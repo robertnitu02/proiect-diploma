@@ -6,6 +6,7 @@ export interface OrderResponse {
   acceptedDate?: string;
   address?: string;
   deliveryDate?: string;
+  fullUserName?: string;
   id?: number;
   marketId?: number;
   marketName?: string;

@@ -104,7 +104,7 @@
                   <tbody>
                   <tr *ngFor="let order of stallOrders; let i = index">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ 'WIP USER' }}</td>
+                    <td>{{ order.fullUserName }}</td>
                     <td>{{ order.address }}</td>
                     <td>{{ beautifyProducts(order.products!) }}</td>
                     <td>{{ order.price }} RON</td>
