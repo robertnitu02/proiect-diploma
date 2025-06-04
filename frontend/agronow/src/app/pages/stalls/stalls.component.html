@@ -5,6 +5,7 @@
       <i class="fas fa-arrow-left me-2"></i> {{ 'stalls.go-back' | translate }}
     </button>
   </div>
+
   <div class="card mb-4 text-center">
     <div class="card-body">
       <h4 class="card-title">{{ market.name }}</h4>
@@ -15,7 +16,9 @@
   <div *ngIf="stalls.length > 0; else noStalls" class="row g-4">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let stall of stalls">
       <div class="card h-100 shadow-sm border-0">
-        <img [src]="stall.imageUrl" class="card-img-top" alt="{{ stall.name }}"/>
+        <img src="{{stall.imageUrl}}"
+             class="card-img-top"
+             alt="{{ stall.name }}"/>
 
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ stall.name }}</h5>
@@ -32,7 +35,7 @@
 </div>
 
 <div *ngIf="isMarketOwner" class="container py-4">
-  <div class="card shadow border-0 rounded-4 p-4 mb-5 mx-auto" style="max-width: 700px;">
+  <div class="card shadow border-0 rounded-4 p-4 mb-5 mx-auto market-owner-container">
     <h3 class="text-center mb-4">{{ 'stalls.create-stall' | translate }}</h3>
     <hr class="mb-4">
 
@@ -75,9 +78,9 @@
       <div *ngFor="let product of productsData" class="card mb-3 shadow-sm border-0 rounded-4 p-3">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h5 class="mb-0">{{ 'stalls.product' | translate }} #{{ product.id }}</h5>
-          <button (click)="removeProduct(product.id)"
+          <button class="btn btn-outline-danger btn-sm rounded-pill"
                   type="button"
-                  class="btn btn-outline-danger btn-sm rounded-pill">
+                  (click)="removeProduct(product.id)">
             <i class="fas fa-trash-alt me-2"></i> {{ 'stalls.remove-product' | translate }}
           </button>
         </div>
@@ -119,10 +122,9 @@
     </div>
 
     <div class="text-center mb-4" *ngIf="stallData.imageUrl">
-      <img [src]="stallData.imageUrl"
+      <img src="{{stallData.imageUrl}}"
            alt="Profile stallData"
-           class="rounded-circle shadow-sm"
-           style="width: 100px; height: 100px; object-fit: cover;">
+           class="rounded-circle shadow-sm stall-image-preview"/>
       <p class="small text-muted mt-2">{{ 'stalls.image-preview' | translate }}</p>
     </div>
 

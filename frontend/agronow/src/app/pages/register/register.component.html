@@ -1,5 +1,5 @@
 <div class="container py-5">
-  <div class="card shadow-lg border-0 rounded-4 p-4 mx-auto" style="max-width: 600px;">
+  <div class="card shadow-lg border-0 rounded-4 p-4 mx-auto register-container">
     <h3 class="text-center mb-3">{{ 'login-and-register.register' | translate }}</h3>
     <hr class="mb-4">
 
@@ -46,10 +46,9 @@
     </div>
 
     <div class="text-center mb-4" *ngIf="registerRequest.imageUrl">
-      <img [src]="registerRequest.imageUrl"
+      <img src="{{registerRequest.imageUrl}}"
            alt="Profile preview"
-           class="rounded-circle shadow-sm"
-           style="width: 100px; height: 100px; object-fit: cover;">
+           class="rounded-circle shadow-sm image-preview"/>
       <p class="small text-muted mt-2">{{ 'login-and-register.image-preview' | translate }}</p>
     </div>
 

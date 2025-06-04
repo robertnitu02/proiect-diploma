@@ -13,3 +13,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.market-image {
+  height: 250px;
+  object-fit: cover;
+}
+
+.admin-container {
+  max-width: 800px;
+}
+
+.market-image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

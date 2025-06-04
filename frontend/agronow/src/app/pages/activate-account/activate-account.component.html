@@ -1,9 +1,10 @@
-<div *ngIf="submitted else codeForm" class="container">
-  <div *ngIf="isOkay else activationError" class="activate-message">
+<div *ngIf="submitted; else codeForm" class="container">
+  <div *ngIf="isOkay; else activationError" class="activate-message">
     <h2>{{ 'login-and-register.activate-successfully-title' | translate }}</h2>
     <p>{{ message | translate }}</p>
     <button class="btn btn-primary" (click)="goToLogin()">{{ 'login-and-register.sign-in' | translate }}</button>
   </div>
+
   <ng-template #activationError>
     <div class="activate-error">
       <h2>{{ 'login-and-register.activate-bad-title' | translate }}</h2>
@@ -15,7 +16,7 @@
 
 <ng-template #codeForm>
   <div class="container">
-    <div class="text-center" style="width: 400px;">
+    <div class="text-center code-form-container">
       <h2>{{ 'login-and-register.type-activation-code' | translate }}</h2>
       <code-input
         [isCodeHidden]="false"

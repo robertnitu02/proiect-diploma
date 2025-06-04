@@ -1,0 +1,13 @@
+.profile-container {
+  max-width: 800px;
+}
+
+.orders-container {
+  max-width: 100%;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

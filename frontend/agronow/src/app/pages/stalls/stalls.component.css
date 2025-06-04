@@ -1,3 +1,13 @@
 .container {
   max-width: 1200px;
 }
+
+.market-owner-container {
+  max-width: 700px;
+}
+
+.stall-image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

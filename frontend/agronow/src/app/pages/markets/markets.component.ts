@@ -81,7 +81,7 @@ export class MarketsComponent implements OnInit, OnDestroy {
     });
   }
 
-  goToMarket(marketId: number) {
+  goToMarketStalls(marketId: number) {
     this.router.navigate(['stalls', marketId]);
   }
 

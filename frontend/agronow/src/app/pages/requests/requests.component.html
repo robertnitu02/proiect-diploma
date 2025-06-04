@@ -3,14 +3,14 @@
     <div  class="container py-4">
       <div class="card shadow border-0 p-4">
         <h3 class="text-center mb-4">{{ 'requests.your-request' | translate }}</h3>
+
         <div *ngIf="hasRequests; else noRequests" class="row g-4">
           <div class="col-md-6" *ngFor="let request of userRequests">
             <div class="card h-100 border-light shadow-sm rounded-4 p-3">
               <div class="d-flex align-items-center mb-3">
-                <img [src]="request.userImageUrl"
+                <img src="{{request.userImageUrl}}"
                      alt="User"
-                     class="rounded-circle me-3 border"
-                     width="50" height="50">
+                     class="rounded-circle me-3 border user-image"/>
                 <div>
                   <h5 class="mb-0 fw-semibold">{{ request.userFullName }}</h5>
                   <small class="text-muted">{{ request.userEmail }}</small>
@@ -37,8 +37,12 @@
               </p>
 
               <div class="text-muted small">
-                <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
-                <div *ngIf="request.answeredAt"><strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}</div>
+                <div>
+                  <strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}
+                </div>
+                <div *ngIf="request.answeredAt">
+                  <strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}
+                </div>
               </div>
             </div>
           </div>
@@ -49,14 +53,14 @@
     <div *ngIf="isAdmin" class="container py-4">
       <div class="card shadow border-0 p-4">
         <h3 class="text-center mb-4">{{ 'requests.admin-requests' | translate }}</h3>
+
         <div *ngIf="usersRequests.length > 0; else noRequests" class="row g-4">
           <div class="col-md-6" *ngFor="let request of usersRequests">
             <div class="card h-100 border-light shadow-sm rounded-4 p-3">
               <div class="d-flex align-items-center mb-3">
-                <img [src]="request.userImageUrl"
+                <img src="{{request.userImageUrl}}"
                      alt="User"
-                     class="rounded-circle me-3 border"
-                     width="50" height="50">
+                     class="rounded-circle me-3 border user-image"/>
                 <div>
                   <h5 class="mb-0 fw-semibold">{{ request.userFullName }}</h5>
                   <small class="text-muted">{{ request.userEmail }}</small>
@@ -80,8 +84,12 @@
               </p>
 
               <div class="text-muted small mb-3">
-                <div><strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}</div>
-                <div *ngIf="request.answeredAt"><strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}</div>
+                <div>
+                  <strong>{{ 'requests.createdAt' | translate }}:</strong> {{ request.createdAt | date:'short' }}
+                </div>
+                <div *ngIf="request.answeredAt">
+                  <strong>{{ 'requests.answeredAt' | translate }}:</strong> {{ request.answeredAt | date:'short' }}
+                </div>
               </div>
 
               <div *ngIf="request.status === 0" class="border-top pt-3 mt-3">
@@ -95,7 +103,8 @@
                 <textarea class="form-control mb-3"
                           rows="3"
                           [(ngModel)]="requestUpdateData[request.id!].reason"
-                          placeholder="{{ 'requests.reason-placeholder' | translate }}"></textarea>
+                          placeholder="{{ 'requests.reason-placeholder' | translate }}">
+                </textarea>
 
                 <button class="btn btn-outline-primary w-100"
                         (click)="submitRequestAnswer(request.id!)">
@@ -120,7 +129,9 @@
 
         <div class="mb-3">
           <label for="requestType" class="form-label fw-medium">{{ 'requests.type' | translate }}</label>
-          <select [(ngModel)]="requestData.type" class="form-select" id="requestType">
+          <select [(ngModel)]="requestData.type"
+                  class="form-select"
+                  id="requestType">
             <option value="0">{{ 'requests.types.0' | translate }}</option>
             <option value="1">{{ 'requests.types.1' | translate }}</option>
           </select>
@@ -156,10 +167,9 @@
         </div>
 
         <div class="text-center mb-4" *ngIf="requestData.imageUrl">
-          <img [src]="requestData.imageUrl"
+          <img src="{{requestData.imageUrl}}"
                alt="Profile preview"
-               class="rounded-circle shadow-sm"
-               style="width: 100px; height: 100px; object-fit: cover;">
+               class="rounded-circle shadow-sm image-preview"/>
           <p class="small text-muted mt-2">{{ 'requests.image-preview' | translate }}</p>
         </div>
 
@@ -177,6 +187,7 @@
         <h2>{{ 'profile.need-to-login-first' | translate }}</h2>
     </div>
   </ng-template>
+
   <ng-template #noRequests>
     <div class="container py-1 text-center">
       <div class="alert alert-warning rounded-3 shadow-sm">

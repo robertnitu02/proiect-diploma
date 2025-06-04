@@ -1,0 +1,8 @@
+.stall-container {
+  max-width: 800px;
+}
+
+.stall-image {
+  height: 250px;
+  object-fit: cover;
+}

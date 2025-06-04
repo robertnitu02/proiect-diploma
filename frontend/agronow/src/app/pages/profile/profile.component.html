@@ -1,14 +1,12 @@
 <div class="container py-5">
-
   <div *ngIf="tokenService.isAlreadyLoggedIn(); else needToLoginFirst">
-    <div *ngIf="profileData" class="card shadow-lg mx-auto mb-5 rounded-4" style="max-width: 800px;">
+    <div *ngIf="profileData" class="card shadow-lg mx-auto mb-5 rounded-4 profile-container">
       <div class="card-body text-center">
 
         <div class="mb-4">
-          <img [src]="profileData.imageUrl"
-               class="rounded-circle border border-2"
-               style="width: 100px; height: 100px; object-fit: cover;"
-               alt="User Image">
+          <img src="{{profileData.imageUrl}}"
+               alt="User Image"
+               class="rounded-circle border border-2 profile-image"/>
         </div>
 
         <h4 class="card-title mb-1 fw-bold">{{ profileData.firstName }} {{ profileData.lastName }}</h4>
@@ -22,7 +20,9 @@
               {{ (profileData.enabled ? 'profile.activated-yes' : 'profile.activated-no') | translate }}
             </span>
           </li>
-          <li *ngIf="isAdmin" class="list-group-item"><strong>{{ 'profile.is-admin' | translate }}:</strong> 1</li>
+          <li *ngIf="isAdmin" class="list-group-item">
+            <strong>{{ 'profile.is-admin' | translate }}:</strong> 1
+          </li>
           <li *ngIf="marketId !== 0" class="list-group-item">
             <strong>{{ 'profile.is-market-owner' | translate }}:</strong>
             <button (click)="goToMarket()"
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div *ngIf="ordersData && ordersData.length > 0; else noOrders" class="card shadow-lg mx-auto rounded-4 p-4" style="max-width: 100%;">
+    <div *ngIf="ordersData && ordersData.length > 0; else noOrders" class="card shadow-lg mx-auto rounded-4 p-4 orders-container">
       <h4 class="mb-4 text-center fw-bold text-primary">
         {{ 'orders.title' | translate }}
       </h4>
