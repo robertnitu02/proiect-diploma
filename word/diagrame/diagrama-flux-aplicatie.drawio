@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="27.1.3">
+  <diagram name="Page-1" id="0hAkmjxt4aYwHJ4S9Q2u">
+    <mxGraphModel dx="1418" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F9j9cEkijvCcyGv2y_23-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6E00FF;strokeWidth=2;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-2" target="F9j9cEkijvCcyGv2y_23-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-2" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;color: rgb(255, 224, 216);&quot;&gt;Interfață Web&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6E00FF;strokeWidth=2;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-3" target="F9j9cEkijvCcyGv2y_23-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-3" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;color: rgb(255, 224, 216);&quot;&gt;Cereri HTTP&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="200" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6E00FF;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-4" target="F9j9cEkijvCcyGv2y_23-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6E00FF;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-4" target="F9j9cEkijvCcyGv2y_23-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-4" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;color: rgb(255, 224, 216);&quot;&gt;Server Java&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-5" value="&lt;font color=&quot;#ffe0d8&quot;&gt;&lt;b&gt;LocalStorage Web&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6E00FF;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-6" target="F9j9cEkijvCcyGv2y_23-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-6" value="&lt;font color=&quot;#ffe0d8&quot;&gt;&lt;b&gt;Procesare&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="520" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6E00FF;" edge="1" parent="1" source="F9j9cEkijvCcyGv2y_23-7" target="F9j9cEkijvCcyGv2y_23-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-7" value="&lt;font color=&quot;#ffe0d8&quot;&gt;&lt;b&gt;PostgreSQL&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="680" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-8" value="&lt;font color=&quot;#ffe0d8&quot;&gt;&lt;b&gt;Baza de date&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#ffe0d8&quot;&gt;&lt;b&gt;MySQL&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="840" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-15" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b style=&quot;&quot;&gt;Interacțiune utilizator cu UI&lt;/b&gt;&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-16" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b style=&quot;&quot;&gt;GET, POST,&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b style=&quot;&quot;&gt;PUT, DELETE&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="190" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-17" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;Preluare Cerere&lt;/b&gt;&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="350" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-18" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;Stocare date&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;utilizator&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="350" y="360" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-19" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;Prelucrare date și aplicare logică&lt;/b&gt;&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="510" y="250" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-20" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;Operații CRUD&lt;/b&gt;&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="670" y="250" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F9j9cEkijvCcyGv2y_23-21" value="&lt;font color=&quot;#fff1ef&quot;&gt;&lt;b&gt;Stocare date&lt;/b&gt;&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="840" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
