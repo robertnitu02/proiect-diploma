@@ -27,19 +27,25 @@ public class User implements UserDetails, Principal {
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(nullable = false, length = 8)
     private String firstName;
+    @Column(nullable = false, length = 8)
     private String lastName;
-    @Column(unique = true)
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
+    @Column(nullable = false, length = 255)
     private String password;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdDate;
 
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean enabled;
+    @Column(nullable = false, length = 64)
     private String imageUrl;
 
+    @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private Integer admin;
 
     @OneToOne

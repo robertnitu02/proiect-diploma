@@ -17,9 +17,13 @@ public class Token {
     @Id
     @GeneratedValue
     private Integer Id;
+    @Column(nullable = false, length = 8)
     private String token;
+    @Column(nullable = false)
     private LocalDateTime createdAt;
+    @Column(nullable = false)
     private LocalDateTime expiredAt;
+    @Column(nullable = true)
     private LocalDateTime validatedAt;
 
     @ManyToOne

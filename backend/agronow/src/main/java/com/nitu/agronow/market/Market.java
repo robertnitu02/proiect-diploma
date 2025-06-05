@@ -18,12 +18,17 @@ import java.security.Principal;
 public class Market implements Principal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
+    @Column(nullable = false, length = 16)
     private String name;
+    @Column(nullable = false, length = 64)
     private String location;
+    @Column(nullable = false, length = 64)
     private String description;
+    @Column(nullable = false, length = 16)
     private String schedule;
+    @Column(nullable = false, length = 64)
     private String imageUrl;
 
     @Transient
