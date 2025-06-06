@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0" version="27.1.4">
+  <diagram name="Page-1" id="82MNfxg1ge-RrlaBIY8m">
+    <mxGraphModel dx="1418" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="220" />
+              <mxPoint x="260" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="220" />
+              <mxPoint x="720" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="220" />
+              <mxPoint x="880" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="220" />
+              <mxPoint x="415" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Model&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="510.01" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-2" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Controller&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-3" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Repository&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="355.01" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-4" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Service&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="510" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-5" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Response?&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="660" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-6" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Data?&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="810" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-12" value="&lt;font style=&quot;color: rgb(255, 243, 237);&quot;&gt;&lt;b&gt;Definit&lt;/b&gt;&lt;/font&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="209.99" y="370" width="100.01" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-13" value="&lt;font style=&quot;color: rgb(255, 243, 237);&quot;&gt;&lt;b&gt;Predefinit&lt;/b&gt;&lt;/font&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="365" y="370" width="100.01" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-14" value="&lt;font style=&quot;color: rgb(255, 243, 237);&quot;&gt;&lt;b&gt;Definit&lt;/b&gt;&lt;/font&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="520" y="370" width="100.01" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-15" value="&lt;font style=&quot;color: rgb(255, 243, 237);&quot;&gt;&lt;b&gt;Definit&lt;/b&gt;&lt;/font&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="670" y="370" width="100.01" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-16" value="&lt;font style=&quot;color: rgb(255, 243, 237);&quot;&gt;&lt;b&gt;Definit&lt;/b&gt;&lt;/font&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;fillColor=#6E00FF;" vertex="1" parent="1">
+          <mxGeometry x="820" y="370" width="100.01" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
