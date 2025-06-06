@@ -91,10 +91,13 @@ public class RequestService {
         request.setAnsweredAt(LocalDateTime.now());
         requestRepository.save(request);
 
-        User user = request.getUser();
-        if (request.getType() == RequestTypes.ADMINISTRATOR.ordinal())
+        if (request.getType() == RequestTypes.ADMINISTRATOR.ordinal() &&
+            request.getStatus() == RequestStatus.ACCEPTED.ordinal())
+        {
+            User user = request.getUser();
             user.setAdmin(1);
-        userRepository.save(user);
+            userRepository.save(user);
+        }
     }
 
     private RequestResponse toRequestResponse(Request request) {
