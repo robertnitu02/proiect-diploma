@@ -65,7 +65,7 @@ public class AuthenticationService {
                 EmailTemplateName.ACTIVATE_ACCOUNT,
                 activationUrl,
                 newToken,
-                "Account Activation"
+                "Activare Cont"
         );
     }
 

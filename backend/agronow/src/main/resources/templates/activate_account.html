@@ -54,11 +54,11 @@
     <br/>
     <br/>
     <h1>Account Activation</h1>
-    <p class="greeting" th:text="'Hello ' + ${username} + ','"></p>
-    <p>Thank you for signing up! Please use the following activation code to activate your account:</p>
+    <p th:text="'Buna Ziua ' + ${username} + ','"></p>
+    <p>Îți mulțumim pentru înregistrare! Te rugăm să folosești următorul cod de activare pentru a-ți activa contul:</p>
     <div class="activation-code"><span th:text="${activation_code}"></span></div>
     <div class="activation-link">
-        <a th:href="${confirmationUrl}" target="_blank">Activate your account</a>
+        <a th:href="${confirmationUrl}" target="_blank">Activează-ți contul!</a>
     </div>
 </div>
 </body>
