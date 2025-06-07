@@ -25,7 +25,6 @@ export class RequestsComponent implements OnInit, OnDestroy {
 
   userId = 0;
 
-  isRequestFormActive = true;
   requestData: Request = { type: 0, status: 0, message: '', links: '', requesterId: this.userId, imageUrl: '' };
   errorMessages: Array<string> = [];
 
