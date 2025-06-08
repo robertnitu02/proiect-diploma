@@ -64,7 +64,6 @@ export class MarketsComponent implements OnInit, OnDestroy {
 
   createMarket() {
     if (!this.isValidMarket()) {
-      // TODO: Implement messages
       return;
     }
 
@@ -72,7 +71,6 @@ export class MarketsComponent implements OnInit, OnDestroy {
       body: this.marketData
     }).subscribe({
       next: (data) => {
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: (err) => {

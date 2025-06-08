@@ -77,7 +77,6 @@ export class StallsComponent implements OnInit, OnDestroy {
   createStall() {
     this.stallData.products = JSON.stringify(this.productsData);
     if (!this.isStallValid()) {
-      // TODO: Implement messages
       return;
     }
 
@@ -87,7 +86,6 @@ export class StallsComponent implements OnInit, OnDestroy {
       body: this.stallData
     }).subscribe({
       next: (data) => {
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: (error: Error) => {

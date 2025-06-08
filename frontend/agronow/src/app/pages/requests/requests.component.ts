@@ -88,7 +88,6 @@ export class RequestsComponent implements OnInit, OnDestroy {
       body: this.requestData
     }).subscribe({
       next: (res: Request) => {
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: err => {
@@ -99,7 +98,6 @@ export class RequestsComponent implements OnInit, OnDestroy {
 
   submitRequestAnswer(requestId: number) {
     if (!this.isSubmitValid(requestId)) {
-      // TODO: Implement messages
       return;
     }
 
@@ -107,7 +105,6 @@ export class RequestsComponent implements OnInit, OnDestroy {
       body: this.requestUpdateData[requestId]
     }).subscribe({
       next: (res: Request) => {
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: err => {
