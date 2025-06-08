@@ -98,7 +98,6 @@ export class StallComponent implements OnInit, OnDestroy {
   submitOrder() {
     const finalOrderData = this.getFinalOrder();
     if (!this.isOrderValid(finalOrderData)) {
-      // TODO: Implement messages
       return;
     }
 
@@ -115,7 +114,6 @@ export class StallComponent implements OnInit, OnDestroy {
       body: data
     }).subscribe({
       next: (data: any) => {
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: (err: any) => {
@@ -146,7 +144,6 @@ export class StallComponent implements OnInit, OnDestroy {
 
   removeProduct(productId: number) {
     const index = this.stallOwnerProductsData.findIndex(el => el.id === productId);
-    console.log(index);
     if (index === -1) return;
 
     this.stallOwnerProductsData.splice(index, 1);
@@ -154,7 +151,6 @@ export class StallComponent implements OnInit, OnDestroy {
 
   updateProducts() {
     const newProducts = JSON.stringify(this.stallOwnerProductsData);
-    console.log(newProducts);
 
     const productData: UpdateProduct = {
       id: this.stall!.id!,
@@ -201,7 +197,6 @@ export class StallComponent implements OnInit, OnDestroy {
     }).subscribe({
       next: (data: any) => {
         console.log(data);
-        // TODO: Implement messages
         this.refreshPage();
       },
       error: err => {
