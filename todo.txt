@@ -1,0 +1,17 @@
+1 - denumit in Introducere (Introducere - Stagiul actual si prezentare generala)
+
+de mutat 1.5 Tehnologii, principii si metode utilizate pentru rezolvare problemei
+
+De modificat schemele sa fie textul mai citibil
+
+3.1 De mutat figura 3.1 (sa inversez culorile, alb sa fie negru etc) - conversie photo invers https://invert.imageonline.co/
+
+posibile intrebari: am normalizat baza de data?
+
+In 3. de precizat de este http in loc de https
+
+De gasit un articol stiintific pentru nevoia crearii aplicatiei - pot preciza exeperianta cu firma EvaSTAFF. 
+
+Capitolul 7 - de adaugat dezvoltari ulterioare - mediatizare - trimiterea unei catre administratorilor diverselor piete pentru implementare. + De reformulat concluzii mai coerente. De precizat ca voi prezenta in fata firmei anterior precizate imediat dupa terminarea licentei - aratarea aplicatiei unor oameni din domeniu (decidenti ai administratiei locale in domeniul respectiv).
+
+Sustinere: 2-3 iulie, 10 zile inainte, undeva 20 iunie
