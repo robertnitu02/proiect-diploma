@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0" version="27.1.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0" version="27.1.6">
   <diagram name="Page-1" id="82MNfxg1ge-RrlaBIY8m">
-    <mxGraphModel dx="1418" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="675" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="wX21lM6BdtcXLvBUcR5m-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-2">
+        <mxCell id="wX21lM6BdtcXLvBUcR5m-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="415" y="240" />
@@ -12,10 +12,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="wX21lM6BdtcXLvBUcR5m-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-3">
+        <mxCell id="wX21lM6BdtcXLvBUcR5m-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="wX21lM6BdtcXLvBUcR5m-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-4">
+        <mxCell id="wX21lM6BdtcXLvBUcR5m-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="iT2ngZEVEIL3hil9jDdr-1" target="iT2ngZEVEIL3hil9jDdr-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="415" y="240" />
@@ -23,16 +23,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="iT2ngZEVEIL3hil9jDdr-1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Componentă&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" parent="1" vertex="1">
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Componentă&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="355.01" y="140" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iT2ngZEVEIL3hil9jDdr-2" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Fișier HTML&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" parent="1" vertex="1">
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-2" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Fișier HTML&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="200" y="300" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iT2ngZEVEIL3hil9jDdr-3" value="&lt;font color=&quot;#ffffff&quot;&gt;&lt;b&gt;Fișier CSS&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" parent="1" vertex="1">
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-3" value="&lt;font color=&quot;#ffffff&quot;&gt;&lt;b&gt;Fișier CSS&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="355.01" y="300" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iT2ngZEVEIL3hil9jDdr-4" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Fișier TypeScript&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6E00FF;" parent="1" vertex="1">
+        <mxCell id="iT2ngZEVEIL3hil9jDdr-4" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;Fișier TypeScript&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="510" y="300" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
