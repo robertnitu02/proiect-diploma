@@ -62,6 +62,12 @@ public class StallService {
         return stalls;
     }
 
+    public StallResponse getStallById(Integer id) {
+        return stallRepository.findById(id)
+                .map(this::toStallResponse)
+                .orElseThrow(() -> new EntityNotFoundException("No stall found with ID:: " + id));
+    }
+
     public void setNewProducts(UpdateStallData updateStallData) {
         Stall stall = stallRepository
                 .findById(updateStallData.getId())
@@ -69,12 +75,6 @@ public class StallService {
 
         stall.setProducts(updateStallData.getProducts());
         stallRepository.save(stall);
-    }
-
-    public StallResponse getStallById(Integer id) {
-        return stallRepository.findById(id)
-                .map(this::toStallResponse)
-                .orElseThrow(() -> new EntityNotFoundException("No stall found with ID:: " + id));
     }
 
     private StallResponse toStallResponse(Stall stall) {

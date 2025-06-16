@@ -1,7 +1,5 @@
 De modificat schemele sa fie textul mai citibil
 
-3.1 De mutat figura 3.1 (sa inversez culorile, alb sa fie negru etc) - conversie photo invers https://invert.imageonline.co/
-
 In 3. de precizat de este http in loc de https
 
 De gasit un articol stiintific pentru nevoia crearii aplicatiei - pot preciza exeperianta cu firma EvaSTAFF. 
