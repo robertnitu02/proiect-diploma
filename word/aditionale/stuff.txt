@@ -1,0 +1,8 @@
+Articole:
+- https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2023.1217813/full
+- https://www.mdpi.com/2071-1050/14/2/787
+
+Posibile intrebari:
+- Normalizare bada de date
+
+
